@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FoodScribe</title>
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+    <link rel="stylesheet" href="css/menu_page.css">
+</head>
+
+<body>
+
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FoodScribe</title>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed|Playfair+Display" rel="stylesheet">
+        <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+
+    </head>
+
+    <body>
+        <!--The following code defines the header of the page-->
+        <header>
+            <!--The link to external CSS-->
+            <title>FoodScribe</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+            <div id="head-content">
+                <!--The following section of the code displays the logo-->
+                <div id="logo">
+                    <a href="#"><img src="https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width=1 50px height=48px></a>
+                </div>
+                <div id="mobbtn">&#9776;</div>
+                <!--The following code describes the menu of the webiste with navigation to external websites-->
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.yelp.com">Reviews</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.tripadvisor.com/">Deals</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://groundshuttle.com/">FAQ</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.foodora.com/contact/">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="section menu-items">
+                <div id="restaurent_context"></div>
+                <div id="menu_sections">
+                    <table id="cart" class="table table-hover table-condensed menu-list">
+                        <thead>
+                            <tr>
+                                <td  style="display:inline-block;width:100%;text-align:left;border-bottom: 1px solid #E1E1E1;">
+                                    <h4>Appetizers</h4>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-th="Product">
+                                    <div>
+                                        <span>
+										  <h5 >Buttermilk Pancakes</h5>
+										  <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+										</span>
+                                    </div>
+                                </td>
+                                <td data-th="Price">$10.99</td>
+                                <td data-th="Quantity">
+                                    <input type="number" class=" text-center" value="0" min="0" max="10">
+                                </td>
+                                <td class="actions" data-th="">
+                                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="Product">
+                                    <div>
+                                        <span>
+										  <h5 id="">Breakfast Tacos</h5>
+										  <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+										</span>
+                                    </div>
+                                </td>
+                                <td data-th="Price">$7.99</td>
+                                <td data-th="Quantity">
+                                    <input type="number" class="form-control text-center" value="2">
+                                </td>
+                                <td class="actions" data-th="">
+                                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+
+                            <tr>
+                                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i>   More Food</a></td>
+                                <td colspan="2" class="hidden-xs"></td>
+                                <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+    </body>
+
+    </html>
+    <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+
+    <script src="js/menu_page.js"></script>
+
+</body>
+</html>

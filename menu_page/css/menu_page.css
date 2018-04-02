@@ -1,0 +1,336 @@
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-align: center;
+	background-color: #fff;
+}
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: 0;
+}
+
+header {
+	background-color: #f9a603;
+	background: linear-gradient(to right, black 10%, #f9a603);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 48px;
+	width: 100%;
+	z-index: 999;
+}
+
+#head-content {
+	margin: 0 auto;
+}
+
+#logo {
+	float: left;
+	height: 70px;
+	overflow: hidden;
+}
+
+#logo a {
+	color: #fff;
+	display: block;
+	font-size: 24px;
+}
+
+#logo a img {
+	width=150px;
+	height=45px
+}
+
+#menu {
+	float: right;
+}
+
+#menu span:after {
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-bottom: none;
+	border-top-color: #999;
+	content: '';
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	right: -6px;
+}
+
+#menu ul {
+	text-align: left;
+	display: inline;
+}
+
+#menu ul li {
+	display: inline-block;
+	margin-right: -4px;
+	position: relative;
+}
+
+#menu ul li:last-child {
+	margin: 0;
+}
+
+#menu ul li a {
+	color: #f7efe2;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 11px 18px;
+}
+
+#menu ul li a:hover {
+	background-color: #f25c00;
+	color: #fff;
+}
+
+#menu ul li ul {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	visibility: hidden;
+}
+
+#menu ul li ul li {
+	display: block;
+	width: 140px;
+	margin: 0;
+}
+
+#menu ul li.sub ul li a:hover {
+	background-color: #f25c00 !important;
+}
+
+#menu .sub.open ul {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
+#mobbtn {
+	background-color: #f25c00;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 26px;
+	line-height: 20px;
+	padding: 14px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 200;
+}
+
+@media screen and (min-width: 961px) {
+	.sub.open a {
+		background-color: #f25c00 !important;
+		color: #fff !important;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	#mobbtn {
+		display: block;
+	}
+	#menu {
+		width: 220px;
+		position: fixed;
+		right: -220px;
+		top: 0;
+	}
+	.mobile {
+		max-height: 100%;
+		overflow: auto;
+	}
+	#menu.mobile ul li,
+	#menu.mobile ul li ul li {
+		display: block;
+		margin: 0;
+		width: auto !important;
+	}
+	#menu.mobile ul li a,
+	#menu.mobile ul li ul li a {
+		background-color: #333;
+		color: #fff;
+	}
+	#menu.mobile ul li a:hover,
+	#menu.mobile ul li ul li a:hover {
+		background-color: #333;
+	}
+	#menu.mobile ul li ul {
+		position: relative;
+	}
+	#menu.mobile ul li ul li {
+		padding-left: 20px;
+		width: 80px;
+	}
+	.sub.open {
+		background-color: #333 !important;
+		color: #fff !important;
+	}
+	#menu.mobile li.sub ul.open li:last-child {
+		padding-bottom: 0;
+	}
+}
+
+.section-heading,
+.section-description {
+	margin-bottom: 1.2rem;
+}
+
+main {
+	margin-top: 48px;
+	!important;
+}
+
+.menu-items .restaurent_header {
+	background-image: url('https://picsum.photos/2000/2000?image=999');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	height: 150px;
+	position: relative;
+}
+
+.menu-items #open_timings {
+	position: absolute;
+	color: white;
+	top: 95px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5);
+	font-family: 'Playfair Display', serif;
+	padding: 5px;
+	right: 10px;
+	font-size: 20px;
+}
+
+.menu-items {
+	font-family: 'Playfair Display', serif;
+}
+
+.menu-items .restaurent_highlight {
+	padding-top: 5px;
+	display: block;
+	background-color: #f7efe2;
+	text-align: left;
+}
+
+.menu-items .display-inline-item {
+	display: inline-block;
+	margin-left: 2%;
+	margin-right: 1%;
+	padding-bottom: 10px;
+	vertical-align: middle;
+	float: left;
+}
+
+.menu-items #RestaurentName {
+	font-size: 1.5em;
+}
+
+.menu-items #RestaurentInfo {
+	font-size: 1em;
+	color: grey;
+}
+
+.menu-items .tab-level {
+	border-bottom: 1px solid grey;
+	margin-top: 2%;
+	margin-right: 1%;
+	margin-left: 1%;
+}
+
+
+/*Menu Item*/
+
+.menu-items .table>tbody>tr>td,
+.menu-items .table>tfoot>tr>td {
+	vertical-align: middle;
+}
+
+.menu-list {
+	margin: 20px 2% 0 2%;
+	width: 96%;
+}
+
+.menu-list h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 0 !important;
+}
+
+@media screen and (max-width: 600px) {
+	.menu-items table#cart tbody td .form-control {
+		width: 20%;
+		display: inline !important;
+	}
+	.menu-items .actions .btn {
+		width: 36%;
+		margin: 1.5em 0;
+	}
+	.menu-items .actions .btn-info {
+		float: left;
+	}
+	.menu-items .actions .btn-danger {
+		float: right;
+	}
+	.menu-items table#cart thead {
+		display: none;
+	}
+	.menu-items table#cart tbody td {
+		display: block;
+		padding: .6rem;
+		min-width: 320px;
+	}
+	.menu-items table#cart tbody tr td:first-child {
+		background: #333;
+		color: #fff;
+	}
+	.menu-items table#cart tbody td:before {
+		content: attr(data-th);
+		font-weight: bold;
+		display: inline-block;
+		width: 8rem;
+	}
+	.menu-items table#cart tfoot td {
+		display: block;
+	}
+	.menu-items table#cart tfoot td .btn {
+		display: block;
+	}
+}
