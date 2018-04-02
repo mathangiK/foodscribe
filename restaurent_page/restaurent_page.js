@@ -42,7 +42,6 @@
     };
 
     var pullResData = function(divElement) {
-
         $.getJSON("../rest.json", function(json) {
             var count = 0;
             var resString = '<div class="row">';
@@ -67,7 +66,7 @@
                 resString = resString + '<div class="three columns">' +
                     '<div class="restaurent-card" style="cursor:pointer;" onClick="redirectToMenuPage(' + item.RestId + ')">' +
                     '<div class="aside">' +
-                    '<img style="height: auto; width:100%; overflow:hidden;"  src="' + cusineURL + '" alt="' + item.Cusine + '">' +
+                    '<img style="width:100%;object-fit: cover;max-height: 90px;" src="' + cusineURL + '" alt="' + item.Cusine + '">' +
                     '</div>' +
                     '<article>' +
                     '<div class="mobile_cards">' +
@@ -132,6 +131,7 @@
 }));
 
 function redirectToMenuPage(resId) {
+	window.location.href = '../menu_page/menu_page.html?restid='+resId;
     console.log(resId);
     return null;
 }
