@@ -1,3 +1,4 @@
+var parameters = '';
 (function(yourcode) {
     // The global jQuery object is passed as a parameter
     yourcode(window.jQuery, window, document);
@@ -9,7 +10,7 @@
 
         // The DOM is ready!
 
-        var parameters = getUrlParameter('locationInfo');
+        parameters = getUrlParameter('locationInfo');
         console.log(parameters);
         if (parameters != typeof(undefined)) pullResData('nearestRestaurents');
 
@@ -42,8 +43,12 @@
     };
 
     var pullResData = function(divElement) {
-        $.getJSON("../rest.json", function(json) {
-            var count = 0;
+
+        $.ajax({
+		  url: "https://foodscribe-backend.herokuapp.com/restaurant/"+parameters,
+		  type: "get", //send it through get method
+		  success: function(json) {
+			var count = 0;
             var resString = '<div class="row">';
             $.each(json, function(i, item) {
 
@@ -51,12 +56,12 @@
                     resString = resString + '</div><div class="row">';
                 }
                 var cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
-                switch (item.Cusine) {
-                    case 'Indian':
+                switch (item.cuisine) {
+                    case 'INDIAN':
                     case 'Thai':
                     case 'Burger':
                     case 'Italian':
-                        cusineURL = "images/" + item.Cusine + ".jpg";
+                        cusineURL = "images/" + item.cuisine + ".jpg";
                         break;
                     default:
                         cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
@@ -64,26 +69,26 @@
                 }
 
                 resString = resString + '<div class="three columns">' +
-                    '<div class="restaurent-card" style="cursor:pointer;" onClick="redirectToMenuPage(' + item.RestId + ')">' +
+                    '<div class="restaurent-card" style="cursor:pointer;" onClick="redirectToMenuPage(' + item.id + ')">' +
                     '<div class="aside">' +
-                    '<img style="width:100%;object-fit: cover;max-height: 90px;" src="' + cusineURL + '" alt="' + item.Cusine + '">' +
+                    '<img style="width:100%;object-fit: cover;max-height: 90px;" src="' + cusineURL + '" alt="' + item.cuisine + '">' +
                     '</div>' +
                     '<article>' +
                     '<div class="mobile_cards">' +
-                    '<img class="inline-item" src="//logo.clearbit.com/' + item.LogoName + '?size=60" alt="' + item.Name + '" />' +
+                    '<img class="inline-item" src="//logo.clearbit.com/' + item.logoName + '?size=60" alt="' + item.restaurantName + '" />' +
                     '<span class="inline-item">' +
-                    '<div class="checkoverflow textStyling" title="' + item.Name + '">' + item.Name + '</div>' +
-                    '<div>' + item.Cusine + '</div>' +
+                    '<div class="checkoverflow textStyling" title="' + item.restaurantName + '">' + item.restaurantName + '</div>' +
+                    '<div>' + item.cuisine + '</div>' +
                     '<div>This is a test</div>' +
                     '</span>' +
                     '</div>' +
                     '<div class="row desktop_card">' +
                     '<div class="three columns ">' +
-                    '<img class="image_box" src="//logo.clearbit.com/' + item.LogoName + '?size=60" alt="Ihop" />' +
+                    '<img class="image_box" src="//logo.clearbit.com/' + item.logoName + '?size=60" alt="Ihop" />' +
                     '</div>' +
                     '<div class="eight columns">' +
-                    '<div class="checkoverflow restaurent-name" title="' + item.Name + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + item.Name + '</div>' +
-                    '<div class="restaurent-cuisine"><i>' + item.Cusine + '</i></div>' +
+                    '<div class="checkoverflow restaurent-name" title="' + item.restaurantName + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + item.restaurantName + '</div>' +
+                    '<div class="restaurent-cuisine"><i>' + item.cuisine + '</i></div>' +
                     '<div>This is a test</div>' +
                     '</div>' +
                     '</div>' +
@@ -93,27 +98,11 @@
             })
             resString = resString + '</div>';
             $("#" + divElement).html(resString);
-        });
-
-
-
-        /*$.ajax({
-		  url: "ajax.aspx",
-		  type: "get", //send it through get method
-		  data: { 
-			ajaxid: 4, 
-			UserID: UserID, 
-			EmailAddress: EmailAddress
-		  },
-		  success: function(response) {
-			//Do Something
 		  },
 		  error: function(xhr) {
 			//Do Something to handle error
 		  }
 		});
-		*/
-
     }
 
 
