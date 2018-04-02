@@ -57,7 +57,7 @@ var parameters = '';
                 }
                 var cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
                 switch (item.cuisine) {
-                    case 'INDIAN':
+                    case 'Indian':
                     case 'Thai':
                     case 'Burger':
                     case 'Italian':
