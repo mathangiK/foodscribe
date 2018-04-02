@@ -2,25 +2,36 @@
   {
     "RestId": 448537,
 	"MenuItemId": 1,
+    "Name": "Rice Bowl",
+	"Category": "Main Course",
+    "Ingredients": "test,test,test,test",
+    "Cost": "10.50"
+  },{
+    "RestId": 448537,
+	"MenuItemId": 2,
     "Name": "Burger",
+	"Category": "Main Course",
     "Ingredients": "test,test,test,test",
     "Cost": "12.50"
   },{
     "RestId": 448537,
-	"MenuItemId": 2 ,
+	"MenuItemId": 3 ,
     "Name": "Coffee",
-    "Ingredients": "test,test,test,test",
-    "Cost": "2.50"
-  },{
-    "RestId": 448537,
-	"MenuItemId": 3, 
-    "Name": "Bubble tea",
+	"Category": "Appetizers",
     "Ingredients": "test,test,test,test",
     "Cost": "2.50"
   },{
     "RestId": 448537,
 	"MenuItemId": 4, 
+    "Name": "Bubble tea",
+	"Category": "Appetizers",
+    "Ingredients": "test,test,test,test",
+    "Cost": "2.50"
+  },{
+    "RestId": 448537,
+	"MenuItemId": 5, 
     "Name": "Earl tea",
+	"Category": "Appetizers",
     "Ingredients": "test,test,test,test",
     "Cost": "3.50"
   }
