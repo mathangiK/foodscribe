@@ -84,7 +84,7 @@ var parameters = '';
                     '</div>' +
                     '<div class="row desktop_card">' +
                     '<div class="three columns ">' +
-                    '<img class="image_box" src="//logo.clearbit.com/' + item.logoName + '?size=60" alt="Ihop" />' +
+                    '<img class="image_box" src="//logo.clearbit.com/' + item.logoName + '?size=60" alt="'+item.restaurantName+'" />' +
                     '</div>' +
                     '<div class="eight columns">' +
                     '<div class="checkoverflow restaurent-name" title="' + item.restaurantName + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + item.restaurantName + '</div>' +
