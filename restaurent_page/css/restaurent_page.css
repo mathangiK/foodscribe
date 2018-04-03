@@ -289,18 +289,26 @@ main {
   }
   
   .restaurent-card .mobile_cards{
+	padding:1px;
     display:block;
     white-space:nowrap;
     margin:0; 
   }
   
   .restaurent-card .inline-item{
+	vertical-align: middle;
     display:inline-block;
     margin-left:2%;
 	
   }
   .restaurent-card .textStyling{
-	  width:93%;
+	  font-size:1.4em;
 	  color:orange;
+  }
+  
+  
+  .restaurent-card .logo-style{
+	border-radius: 5px;
+    margin-left: 0;
   }
 }
