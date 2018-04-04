@@ -1,5 +1,5 @@
 /* ADDCLASS ON MOBILE */
-var count = 1;
+var count = 2;
 (function($) {
   var $window = $(window),
       $orderprogress = $('#orderprogress'),
@@ -12,16 +12,13 @@ var count = 1;
     $menu.removeClass('mobile');
     $orderprogress.removeClass('mobile');
   }).trigger('resize');
-
   
-  $("#testbutton").click(function(){
-	  
-	  var precent = (count * (32-(count*1.5)));
-	  count += 1;
-    $("#mascot-animation").animate({
-      left: precent+"%"
-    },1000);
-  }); 
+	var precent = (count * (32-(count*1.5)));
+	count += 1;
+	if(count >4) return;
+	$("#mascot-animation").animate({
+		left: precent+"%"
+	},2000);
 
 })(jQuery);
 /* OPEN SUB-MENU ON CLICK */
