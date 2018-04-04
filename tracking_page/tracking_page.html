@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>FoodScribe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+  <link rel="stylesheet" href="css/tracking_page.css">
+</head>
+
+<body>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <header>
+	<!--The link to external CSS-->
+	<title>FoodScribe</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+	<div id="head-content">
+		<!--The following section of the code displays the logo-->
+		<div id="logo">
+			<a href="../index.html"><img src="https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a>
+		</div>
+	</div>
+	<div id="mobbtn">&#9776;</div>
+		<!--The following code describes the menu of the webiste with navigation to external websites-->
+	<nav id="menu">
+	  <ul>
+		<li>
+			<a href="../index.html">Home</a>
+		</li>
+		<li>
+			<a href="#">Deals</a>
+		</li>
+		<li>
+			<a href="#">FAQ</a>
+		</li>
+		<li>
+			<a href="#">Contact</a>
+		</li>
+		<li class="sub">
+			<a href="#"><span>Account</span></a>
+			<ul>
+				<li><a href="#">Orders</a></li>
+				<li><a href="#">Tracking</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>			
+		</li>
+		<li>
+			<a href="#">Login</a>
+		</li>
+	  </ul>
+	</nav>
+	</div>
+   </header>
+  
+  <main>
+  <section class="section login">
+    <div class="container order-panel">
+      <div class="row">
+        <h1>Order Tracking</h1>
+        <hr>
+      </div>
+      <div id="orderProgress">
+      <div class="row mascot-container">
+        <div id="mascot-animation">
+          <img src="images/mascot.png" style="margin-left:30%;display:block;max-width:100px;max-height:70px;width:auto;height:auto;" />
+        </div>
+      </div>
+
+      <div class="row" style="font-weight: bold">
+        <div class="three columns">
+          <p><e>Order Placed</e></p>
+        </div>
+        <div class="three columns">
+          <p>Order Preparation</p>
+        </div>
+        <div class="three columns">
+          <p>Out for Delivery</p>
+        </div>
+        <div class="three columns">
+          <p>Order Delivered</p>
+        </div>
+      </div>
+      <div class="row">
+        <input id="testbutton" type="button" value="test button"/>
+        </div>
+      </div>
+      <hr/>
+      <form >
+        <div class="row">
+          <h4>Order Details</h4>
+        </div>
+        <div class="order-form">
+        <div class="row box">
+          <div class="one-half column order-label">
+            <label for="orderNumber">Order Number:</label>
+          </div>
+          <div class="one-half column">
+            <label for="orderNumber">ABCSGUS983243294</label>
+          </div>
+        </div>
+         <hr>
+        <div class="row box">
+          <div class="six columns">
+            <label for="deliveryAddress">Delivery Address:</label>
+          </div>
+          <div class="six columns">
+            <div class="row">
+            <label for="deliveryAddress">4302 College Main Street</label>
+            </div>
+            <div class="row">
+            <label for="deliveryAddress">Bryan, Texas 77803</label>
+            </div>
+          </div>
+        </div>
+           <hr>
+         <div class="row box">
+          <div class="six columns">
+            <label for="totalAmount">Invoice Amount:</label>
+          </div>
+          <div class="six columns">
+            <label for="totalAmount">$23.70</label>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</section>
+</main>
+
+  <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+  <script  src="js/tracking_page.js"></script>
+</body>
+
+</html>
