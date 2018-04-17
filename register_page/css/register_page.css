@@ -1,0 +1,297 @@
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-align: center;
+	background-color: #fff;
+}
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: 0;
+}
+
+header {
+	background-color: #f9a603;
+	background: linear-gradient(to right, black 10%, #f9a603);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 48px;
+	width: 100%;
+	z-index: 999;
+}
+
+#head-content {
+	margin: 0 auto;
+}
+
+#logo {
+	float: left;
+	height: 70px;
+	overflow: hidden;
+}
+
+#logo a {
+	color: #fff;
+	display: block;
+	font-size: 24px;
+}
+
+#logo a img {
+	width=150px;
+	height=45px
+}
+
+#menu {
+	float: right;
+}
+
+#menu span:after {
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-bottom: none;
+	border-top-color: #999;
+	content: '';
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	right: -6px;
+}
+
+#menu ul {
+	text-align: left;
+	display: inline;
+}
+
+#menu ul li {
+	display: inline-block;
+	margin-right: -4px;
+	position: relative;
+}
+
+#menu ul li:last-child {
+	margin: 0;
+}
+
+#menu ul li a {
+	color: #f7efe2;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 11px 18px;
+}
+
+#menu ul li a:hover {
+	background-color: #f25c00;
+	color: #fff;
+}
+
+#menu ul li ul {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	visibility: hidden;
+}
+
+#menu ul li ul li {
+	display: block;
+	width: 140px;
+	margin: 0;
+}
+
+#menu ul li.sub ul li a:hover {
+	background-color: #f25c00 !important;
+}
+
+#menu .sub.open ul {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
+#mobbtn {
+	background-color: #f25c00;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 26px;
+	line-height: 20px;
+	padding: 14px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 200;
+}
+
+@media screen and (min-width: 961px) {
+	.sub.open a {
+		background-color: #f25c00 !important;
+		color: #fff !important;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	#mobbtn {
+		display: block;
+	}
+	#menu {
+		width: 220px;
+		position: fixed;
+		right: -220px;
+		top: 0;
+	}
+	.mobile {
+		max-height: 100%;
+		overflow: auto;
+	}
+	#menu.mobile ul li,
+	#menu.mobile ul li ul li {
+		display: block;
+		margin: 0;
+		width: auto !important;
+	}
+	#menu.mobile ul li a,
+	#menu.mobile ul li ul li a {
+		background-color: #333;
+		color: #fff;
+	}
+	#menu.mobile ul li a:hover,
+	#menu.mobile ul li ul li a:hover {
+		background-color: #333;
+	}
+	#menu.mobile ul li ul {
+		position: relative;
+	}
+	#menu.mobile ul li ul li {
+		padding-left: 20px;
+		width: 80px;
+	}
+	.sub.open {
+		background-color: #333 !important;
+		color: #fff !important;
+	}
+	#menu.mobile li.sub ul.open li:last-child {
+		padding-bottom: 0;
+	}
+}
+
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+main {
+  margin-top: 80px; !important;
+}
+
+/*order management css begin*/
+
+@media screen and (min-width: 961px) {
+  .section {
+    padding: 5rem 0 7rem;
+    text-align: center;
+  }
+  
+  .order-form{
+    margin-left:6%;
+	margin-right:6%;
+    text-align:left;
+  }
+  
+  .order-panel{
+    padding: 1%;
+  }
+  
+  .order-form hr{
+    margin-top:0px !important;
+     margin-right:20px !important;
+     margin-bottom:0px !important;
+  }
+  
+  div#mascot-animation img {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out; 
+    -o-transition: all 1s ease-in-out; 
+    -ms-transition: all 1s ease-in-out; 
+    border-radius:60px;
+    transition-duration: 1s;
+  }
+
+  div#mascot-animation img:hover { 
+    -webkit-transform: rotate(360deg); 
+    -moz-transform: rotate(360deg); 
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg); 
+    transform: translate()
+  }
+  
+   .box{
+    margin:2%;
+
+  }
+}
+
+@media screen and (max-width: 960px) {
+
+  .section {
+    padding: 3rem 0 3rem;
+    text-align: center;
+
+  }
+  .order-form{
+    margin-left:5%;
+    text-align:left;
+    background-color: #FFFAF0;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); 
+  }
+  #mascot-animation{
+    display:none;
+  }
+  .order-panel{
+    text-size : 5px;
+    
+  }
+  .order-form hr{
+    margin:0px !important;
+  }
+
+  .box{
+    margin:2%;
+    padding:5px;
+
+  }
+  .order-label{
+    text-weight: bold; 
+  }
+}
+/*order management css end*/

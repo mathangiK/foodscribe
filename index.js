@@ -80,7 +80,7 @@ $('.content').on('click', function() {
 });
 
 function redirectToRestPage(){
-	window.location.href = '../restaurent_page/restaurent_page.html?locationInfo='+locationInfo;
+	window.location.href = 'restaurent_page/restaurent_page.html?locationInfo='+locationInfo;
 }
 
 /* Sources : 

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>FoodScribe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+  <link rel="stylesheet" href="css/payment_page.css">
+  <link rel="stylesheet" href="css/jquery_steps.css">
+</head>
+
+<body>
+
+  <header>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <div id="head-content">
+    <div id="logo"><a href="#"><img src = "https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a></div>  
+    <div id="mobbtn">&#9776;</div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="https://www.yelp.com">Reviews</a>
+         
+        </li>
+        <li>
+          <a href="https://www.tripadvisor.com/">Deals</a>
+        </li>
+        <li><a href="https://groundshuttle.com/">FAQ</a></li>
+        <li><a href="https://www.foodora.com/contact/">Contact</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </div>    
+</header>
+<main>
+	<div style="margin:0 2%">
+		<h1 id="heading">Order Details</h1>
+		<form id="example-form" action="#">
+    <div id="wizard">
+        <h3>Account</h3>
+        <fieldset>
+			<div class="row">
+				<div class="two columns" ><label for="customerName">*Name</label></div>
+				<div class="ten columns"><input type="text" class=" u-full-width required" name="customerName" id="customerName" placeholder="Recevier Name"/></div>
+			</div>
+			<label for="shippingAddress ">*Street Address</label>
+			<input type="text" class=" u-full-width required" name="shippingAddress" id="shippingAddress" placeholder="Street Address 1 " />
+			<input type="text" class="u-full-width"  placeholder="Street Address 2 " />
+            <div class="row ">
+				<div class="four columns ">
+					 <label for="shippingCity ">*City</label>
+					 <input type="text" class="required" id="shippingCity" name="shippingCity" placeholder="Your City " />
+				</div>
+				<div class="four columns ">
+					<label for="shippingState">*State</label><br>
+					<select id="shippingState">
+					  <option value="" disabled>-- state --</option>
+					  <option>TX
+					  </option>
+					</select>
+				</div>
+				<div class="four columns ">
+					<label for="shippingZipcode">*Zipcode</label>
+					<input type="text" id="shippingZipcode" name="shippingZipcode" class="required" placeholder="Zipcode "/>
+				</div>
+			</div>
+            <p>(*) Mandatory</p>
+        </fieldset>
+        <h3>Profile</h3>
+        <fieldset>
+            <div class="row">
+				<div class="row">
+					<div class="three columns">
+					  <label for="cardType">*Select Card Type:</label>
+					</div>
+					<div class="three columns">
+					  <select id="cardType" >
+						<option value="" disabled="disabled">
+						  -- Card Type --
+						</option>
+						<option value="visa">Visa</option>
+						<option value="mastercard">Mastercard</option>
+						<option value="discover">Discover</option>
+						<option value="amex">American Express</option>
+					  </select>
+					</div>
+					<div class="four columns">
+						<img src="https://dl.dropboxusercontent.com/s/863hcrmbzik4kn3/creditcard.png?dl=0" class="img-responsive" />
+					</div>
+				</div>
+				<div class="row">
+				  <div class="three columns"><label for="cardHolder">*Card Holder</label></div>
+				  <div class="nine columns"><input type="text" name="cardHolder" class="required u-full-width " id="cardHolder"  placeholder="Card Holder Name"/></div>
+				</div>
+				<div class="row">
+				  <div class="three columns"><label for="cardNumber">*Card Number</label></div>
+				  <div class="nine columns">
+					<div class="input-group">
+						<input type="number" style="display:inline;width:90%" class="required number" name="cardNumber" id="cardNumber"  placeholder="Valid Card Number"/>
+						<span style="display:inline;" class="input-group-addon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+					</div>
+				  </div>
+				</div>
+            </div>
+            <div class="row">
+              <div class="seven columns">
+                  <label>*Expiration Date</label>
+                  <div class="row">
+                    <div class="six columns">
+                      <select class="u-full-width" id="expiryMonth" name="expiryMonth">
+                        <option value="" disabled="disabled">
+                          --Month--
+                        </option>
+                        <option value="1">Jan (01)</option>
+                        <option value="2">Feb (02)</option>
+                        <option value="3">Mar (03)</option>
+                        <option value="4">Apr (04)</option>
+                        <option value="5">May (05)</option>
+                        <option value="6">June (06)</option>
+                        <option value="7">July (07)</option>
+                        <option value="8">Aug (08)</option>
+                        <option value="9">Sep (09)</option>
+                        <option value="10">Oct (10)</option>
+                        <option value="11">Nov (11)</option>
+                        <option value="12">Dec (12)</option>
+                      </select>
+                    </div>
+                    <div class="six columns">
+                      <select class="u-full-width" id="expiryYear" name="expiryYear">
+                        <option value="" disabled="disabled">--Year--
+                        </option>
+                        <option value="17">2017</option>
+                        <option value="18">2018</option>
+                        <option value="19">2019</option>
+                        <option value="20">2020</option>
+                        <option value="21">2021</option>
+                        <option value="22">2022</option>
+                        <option value="23">2023</option>
+                        <option value="23">2024</option>
+                        <option value="23">2025</option>
+                        <option value="23">2026</option>
+                        <option value="23">2027</option>
+                        <option value="23">2028</option>
+                        <option value="23">2029</option>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="five columns">
+                  <label for="cardCVC">CVC Code</label>
+                  <input id="cardCVC" type="number" class="required number" name="cardCVC" placeholder="CVC"/>
+              </div>
+            </div>
+			<p>(*) Mandatory</p>
+        </fieldset>
+        <h3>Order</h3>
+        <fieldset>
+			<div id="info"></div>
+        </fieldset>
+    </div>
+</form>
+	</div>
+</main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js"></script>
+	<script src="js/payment_page.js"></script>
+</body>
+
+</html>

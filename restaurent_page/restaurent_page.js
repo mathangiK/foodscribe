@@ -285,6 +285,5 @@ $('.content').on('click', function() {
 
 function redirectToMenuPage(resId) {
 	window.location.href = '../menu_page/menu_page.html?restid='+resId;
-    console.log(resId);
     return null;
 }
