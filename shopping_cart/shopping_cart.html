@@ -12,7 +12,7 @@
 
 <body>
 
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Slabo+27px" rel="stylesheet">
   <header>
 	<!--The link to external CSS-->
 	<title>FoodScribe</title>
@@ -62,12 +62,31 @@
         <h1>Shopping Cart</h1>
       </div>
       <form >
-        <div class="order-form" id="shoppingCart"></div>
+		<div class="row">
+			<div class="eight columns order-form"  id="shoppingCart">
+			</div>
+			<div class="three columns desktop" style="border: 1px solid orange;border-radius:5px; margin:0;font-family: 'Slabo 27px', serif;">
+				<h5 style="border-bottom: 1px solid orange; margin:5px;">HELP</h5>
+				<div class="row">Questions or concerns?</div>
+				<div class="row" style="text-align:left;margin-left:5%;">Email us and we will be happy to help</div>
+				<div class="row" style="text-align:left;margin-left:5%;"><a href="#openModal" onclick="updateModalWindow('FAQ');">FAQs</a></div>
+				<div class="row" style="text-align:left;margin-left:5%;"><a href="#openModal" onclick="updateModalWindow('Privacy');">Privacy Policy</a></div>
+				<div class="row" style="text-align:left;margin-left:5%;"><a href="#openModal" onclick="updateModalWindow('Cancel');">Order Cancellation</a></div>
+				<div class="row" style="text-align:left;margin-left:5%;"><a href="#openModal" onclick="updateModalWindow('Delivery');">Delivery Options</a></div>
+			</div>
+		</div>
       </form>
     </div>
     </div>
   </div>
 </section>
+<div id="openModal" class="modalDialog desktop">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<h2 id="modalHeading"></h2>
+		<div id="modalContent"></div>
+	</div>
+</div>
 </main>
 
   <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>

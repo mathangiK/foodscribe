@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
+    <title>FoodScribe</title>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+	
+	<link rel="stylesheet" href="css/order_history.css">
+	<link rel="stylesheet" href="css/order_table.css">
+</head>
+
+<body>
+
+<header>
+            <!--The link to external CSS-->
+            <title>FoodScribe</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+            <div id="head-content">
+                <!--The following section of the code displays the logo-->
+                <div id="logo">
+                    <a href="../index.html"><img src="https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a>
+				</div>
+            </div>
+            <div id="mobbtn">&#9776;</div>
+                <!--The following code describes the menu of the webiste with navigation to external websites-->
+			<nav id="menu">
+			  <ul>
+				<li>
+					<a href="../index.html">Home</a>
+				</li>
+				<li>
+					<a href="#">Deals</a>
+				</li>
+				<li>
+					<a href="#">FAQ</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+				<li class="sub">
+					<a href="#"><span>Account</span></a>
+					<ul>
+						<li><a href="#">Orders</a></li>
+						<li><a href="tracking_page/tracking_page.html">Tracking</a></li>
+						<li><a href="#">Settings</a></li>
+					</ul>			
+				</li>
+				<li>
+					<a href="#">Login</a>
+				</li>
+			  </ul>
+			</nav>
+            </div>
+        </header>
+<main>
+	<section class="section">
+		<div class="order-panel">
+		  <div class="row">
+			<h1>Order History</h1>
+			<div>
+				<table id="orderTable" class="stripe">
+					<thead>
+						<tr>
+							<th>Order#</th>
+							<th>Submited On</th>
+							<th>Invoice Total</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td class="color-code-delivered"><a href="../tracking_page/tracking_page.html">#34455</a></td>
+							<td>2/3/2018</td>
+							<td>$239</td>
+							<td>Delivered</td>
+						</tr>
+						<tr >
+							<td class="color-code-progress"><a href="../tracking_page/tracking_page.html">#34445</a></td>
+							<td>2/3/2018</td>
+							<td>$239</td>
+							<td>In Progress</td>
+						</tr>
+						<tr >
+							<td class="color-code-delivered"><a href="../tracking_page/tracking_page.html">#34465</a></td>
+							<td>2/3/2018</td>
+							<td>$239</td>
+							<td>Delivered</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		  </div>
+		</div>
+		</div>
+	  </div>
+	</section>
+</main>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+   <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  
+  <script  src="js/order_history.js"></script>
+</body>
+
+</html>

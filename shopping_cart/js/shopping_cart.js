@@ -62,16 +62,16 @@ $('.content').on('click', function() {
 });
 
 function createShoppingCart(){
-	  var cart = '<div class="row" style="border-bottom: 1px solid grey;">'+
+	  var cart = '<div class="row desktop" style="border-bottom: 1px solid grey;">'+
 			'<div class="six columns ">Item</div>'+
 			'<div class="two columns ">Quantity</div>'+
 			'<div class="two columns ">Price</div>'+
 			'<div class="two columns ">SubTotal</div>'+
 		'</div>';
-		
-	  cart = cart+'<div class="row box">'+
+		var id;
+		cart = cart+'<div class="row box" >'+
 						  '<div class="six columns order-label">'+
-							'<div class="row restaurentName" >Pizuki</div>'+
+							'<div class="row restaurentName" >Pizookie</div>'+
 							'<div class="row restaurentInfo" >IceCream With Cookie</div>'+
 							'<div class="row" ><a href="javascript:void(0)" onclick="deleteItem("id");">Delete</a></div>'+
 						  '</div>'+
@@ -82,10 +82,11 @@ function createShoppingCart(){
 							'<span>$15.22</span>'+
 						  '</div>'+
 						  '<div class="two columns">'+
-							'<span>$15.22</span>'+
+							'<span id="total'+id+'">$15.22</span>'+
 						  '</div>'+
 						'</div>';
-		cart = cart +'<input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/>';
+		cart = cart +'<div style="float:right; text-align:right;">Subtotal: $20.97<br/>Discount: -$0</br>Tax(@ 8.0%): $1.56</br>Total: $22.56</div>';
+		cart = cart +'<div style="float:right;clear:both;margin-top:20px;"><input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/></div>';
 	$('#shoppingCart').html(cart);
   }
 
@@ -128,3 +129,32 @@ function deleteItem(itemid){
 	});	
 }
 
+function updateModalWindow(type){
+	var title,content;
+	
+	switch(type){
+		case 'FAQ':
+			title = 'FAQs';
+			content = '<p>This is a FAQ section</p>';
+			break;
+		case 'Privacy':
+			title = 'Privacy Policy';
+			content = '<p>This is a FAQ section</p>';
+			break;
+		case 'Cancel':
+			title = 'Order Cancellation Policy';
+			content = '<p>This is a FAQ section</p>';
+			break;
+		case 'Delivery':
+			title = 'Delivery Policy';
+			content = '<p>This is a FAQ section</p>';
+			break;
+		default:
+			title = 'Help';
+			content = '<p>Email us and we will be happy to help</p>';
+			break;	
+	}
+	$('#modalHeading').html(title);
+	$('#modalContent').html(content);
+	
+}
