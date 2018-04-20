@@ -69,12 +69,9 @@ function createShoppingCart(){
 		$.ajax({
 			url: "https://foodscribe-backend.herokuapp.com/cart/getCartItemList",
 			type: "get", //send it through get method
+			contentType: "application/json; charset=utf-8",
 			beforeSend : function(xhr){
 				xhr.setRequestHeader('userid',Number.parseInt(localStorage.getItem("token"))),
-				xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'),
-				xhr.setRequestHeader('Access-Control-Allow-Origin', '*'),
-				xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-				
 			},
 			success: function(json) {
 				var resString = '';
