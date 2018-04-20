@@ -71,7 +71,7 @@ function createShoppingCart(){
 			type: "get", //send it through get method
 			contentType: "application/json; charset=utf-8",
 			beforeSend : function(xhr){
-				xhr.setRequestHeader('userid',Number.parseInt(localStorage.getItem("token"))),
+				xhr.setRequestHeader('userid',Number.parseInt(localStorage.getItem("token")))
 			},
 			success: function(json) {
 				var resString = '';
