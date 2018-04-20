@@ -62,6 +62,31 @@ $('.content').on('click', function() {
 });
 
 function createShoppingCart(){
+	var headerInfo = {
+		userid : Number.parseInt(localStorage.getItem("token"))
+	};
+	console.log(headerInfo);
+		$.ajax({
+			url: "https://foodscribe-backend.herokuapp.com/cart/getCartItemList",
+			type: "get", //send it through get method
+			beforeSend : function(xhr){
+				xhr.setRequestHeader('userid',Number.parseInt(localStorage.getItem("token"))),
+				xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'),
+				xhr.setRequestHeader('Access-Control-Allow-Origin', '*'),
+				xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+				
+			},
+			success: function(json) {
+				var resString = '';
+				console.log(json);
+				
+			},
+			error: function(xhr) {
+				console.log(xhr);
+			//Do Something to handle error
+			}
+		});
+	
 	  var cart = '<div class="row desktop" style="border-bottom: 1px solid grey;">'+
 			'<div class="six columns ">Item</div>'+
 			'<div class="two columns ">Quantity</div>'+
