@@ -29,10 +29,11 @@ jQuery.validator.setDefaults({
 			type: "get", //send it through get method
 			success: function(json) {
 				console.log(json);
-				$.each(json, function(i, item) {
-					if(json == ''){
+				if(json != ''){
+					$.each(json, function(i, item) {
+
 						//$('#orderTable').addClass('emptyjson');
-						
+						/*
 						switch(item.orderStatus){
 							case "In Progress": color_code = 'color-code-progress';
 											break;
@@ -40,7 +41,7 @@ jQuery.validator.setDefaults({
 											break;
 							default:  color_code = 'color-code-progress';
 											break;
-						}
+						}*/
 						var tableRec =	'<tr>'+
 								'<td class="'+color_code+'"><a href="../tracking_page/tracking_page.html?orderId='+item.id+'">#'+item.id+'</a></td>'+
 								'<td>'+item.orderDate+'</td>'+
@@ -48,6 +49,21 @@ jQuery.validator.setDefaults({
 								'<td>'+item.orderStatus+'</td>'+
 							'</tr>';
 							$('#tableBody').append(tableRec);
+					
+					});
+				}
+				var table = $('#orderTable').DataTable({
+					responsive: true
+				});
+				
+				table.on( 'click', 'tr', function () {
+					if ( $(this).hasClass('selected') ) {
+						$(this).removeClass('selected');
+					}
+					else {
+						table.$('tr.selected').removeClass('selected');
+						$(this).addClass('selected');
+						
 					}
 				});
 				
@@ -58,21 +74,10 @@ jQuery.validator.setDefaults({
 		});	
 		
 		
-		var table = $('#orderTable').DataTable({
-			responsive: true
-		});
 		
 		
-		table.on( 'click', 'tr', function () {
-			if ( $(this).hasClass('selected') ) {
-				$(this).removeClass('selected');
-			}
-			else {
-				table.$('tr.selected').removeClass('selected');
-				$(this).addClass('selected');
-				
-			}
-		});
+		
+		
 		
     });
 	

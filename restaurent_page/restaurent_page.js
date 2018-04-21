@@ -58,6 +58,12 @@ var freeDeliveryArray = [];
 			  url: "https://foodscribe-backend.herokuapp.com/restaurant/"+parameters,
 			  type: "get", //send it through get method
 			  success: function(json) {
+				  if(json == ''){
+					  $('#initialSection').hide();
+					  $('#showMore').hide();
+					  $('#NoRest').show();
+					  return;
+				  }
 				allRecords = json;
 				var count = 0;
 				var resString = '<div class="row">';
