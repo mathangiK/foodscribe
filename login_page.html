@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
+    <title>FoodScribe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">	
+	<link rel='stylesheet prefetch' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+	<link rel="stylesheet" href="css/login_page.css">
+</head>
+
+<body>
+
+<header>
+            <!--The link to external CSS-->
+            <title>FoodScribe</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+            <div id="head-content">
+                <!--The following section of the code displays the logo-->
+                <div id="logo">
+                    <a href="../index.html"><img src="https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a>
+				</div>
+            </div>
+            <div id="mobbtn">&#9776;</div>
+                <!--The following code describes the menu of the webiste with navigation to external websites-->
+			<nav id="menu">
+			  <ul>
+				<li>
+					<a href="../index.html">Home</a>
+				</li>
+				<li>
+					<a href="#">Deals</a>
+				</li>
+				<li>
+					<a href="#">FAQ</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+				<li class="sub">
+					<a href="#"><span>Account</span></a>
+					<ul>
+						<li><a href="#">Orders</a></li>
+						<li><a href="tracking_page/tracking_page.html">Tracking</a></li>
+						<li><a href="#">Settings</a></li>
+					</ul>			
+				</li>
+				<li>
+					<a href="#">Login</a>
+				</li>
+			  </ul>
+			</nav>
+            </div>
+        </header>
+<main>
+  <div class="mascot">
+   <img src="images/mascot.png" style="height:200px;width:auto;"/>
+  </div>
+  <div class="login-box"> 
+    <div class="lb-header">
+      <a href="#" class="active" id="login-box-link">Login</a>
+      <a href="#" id="signup-box-link">Sign Up</a>
+    </div>
+    <div class="social-login">
+      <a href="#">
+        <i class="fa fa-facebook fa-lg"></i>
+        Log in with facebook
+      </a>
+      <a href="#">
+        <i class="fa fa-google-plus fa-lg"></i>
+        Log in with Google
+      </a>
+    </div>
+	<div id="errorMessage">
+	</div>
+    <form id="signinForm" class="email-login">
+      <div class="u-form-group">
+        <input type="email" id="login_username" name="login_username" placeholder="Email"/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" id="login_password" name="login_password" placeholder="Password"/>
+      </div>
+      <div class="u-form-group">
+        <button id="login">Log in</button>
+      </div>
+      <div class="u-form-group">
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+    </form>
+    <form id="signupForm" class="email-signup">
+      <div class="u-form-group">
+        <input type="email" id="signup_email" name="signup_email" placeholder="Email"/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" id="signup_password" name="signup_password" placeholder="Password"/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" id="signup_confirmPass" name="signup_confirmPass" placeholder="Confirm Password"/>
+      </div>
+      <div class="u-form-group">
+        <button id="signup">Sign Up</button>
+      </div>
+    </form>
+  </div>
+
+</main>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js'></script>
+  <script  src="js/login_page.js"></script>
+</body>
+
+</html>
