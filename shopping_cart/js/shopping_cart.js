@@ -62,6 +62,7 @@ $('.content').on('click', function() {
 });
 
 function createShoppingCart(){
+	var count = 0;
 	var headerInfo = {
 		userid : Number.parseInt(localStorage.getItem("token"))
 	};
@@ -69,21 +70,52 @@ function createShoppingCart(){
 		$.ajax({
 			url: "https://foodscribe-backend.herokuapp.com/cart/getCartItemList",
 			type: "get", //send it through get method
-			contentType: "application/json; charset=utf-8",
-			beforeSend : function(xhr){
-				xhr.setRequestHeader('userid',Number.parseInt(localStorage.getItem("token")))
-			},
+			headers : {
+				userid : Number.parseInt(localStorage.getItem("token"))
+			}, 
+			contentType:"application/json",
 			success: function(json) {
 				var resString = '';
 				console.log(json);
-				
+				if(json!=''){
+					var cart = '<div class="row desktop" style="border-bottom: 1px solid grey;">'+
+						'<div class="six columns ">Item</div>'+
+						'<div class="two columns ">Quantity</div>'+
+						'<div class="two columns ">Price</div>'+
+						'<div class="two columns ">SubTotal</div>'+
+					'</div>';
+					$.each(json, function(i, item) {
+						count = count + Number.parseFloat(item.subtotal);
+						cart = cart+'<div class="row box" >'+
+						  '<div class="six columns order-label">'+
+							'<div class="row restaurentName" >'+item.menuItem.itemName+'</div>'+
+							'<div class="row restaurentInfo" >'+item.menuItem.itemDesc+'</div>'+
+							'<div class="row" ><a href="javascript:void(0)" onclick="deleteItem('+item.id+');">Delete</a></div>'+
+						  '</div>'+
+						  '<div class="two columns">'+
+							'<input type="number" style="height:2em;" value="'+item.qty+'" min="1" max="10" onchange="updateServerSideCart('+item.id+',this.value);"/>'+
+						  '</div>'+
+						  '<div class="two columns">'+
+							'<span>$'+item.menuItem.itemPrice+'</span>'+
+						  '</div>'+
+						  '<div class="two columns">'+
+							'<span>$'+item.subtotal+'</span>'+
+						  '</div>'+
+						'</div>';
+					});
+					var tax = count * 0.08;
+					var total  = count + (count *0.08);
+					cart = cart +'<div style="float:right; text-align:right;">Subtotal: '+count+'<br/>Discount: -$0</br>Tax(@ 8.0%): '+tax+'</br>Total: '+total+'</div>';
+					cart = cart +'<div style="float:right;clear:both;margin-top:20px;"><input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/></div>';
+					$('#shoppingCart').html(cart);
+				}
 			},
 			error: function(xhr) {
 				console.log(xhr);
 			//Do Something to handle error
 			}
 		});
-	
+	/*
 	  var cart = '<div class="row desktop" style="border-bottom: 1px solid grey;">'+
 			'<div class="six columns ">Item</div>'+
 			'<div class="two columns ">Quantity</div>'+
@@ -107,9 +139,10 @@ function createShoppingCart(){
 							'<span id="total'+id+'">$15.22</span>'+
 						  '</div>'+
 						'</div>';
-		cart = cart +'<div style="float:right; text-align:right;">Subtotal: $20.97<br/>Discount: -$0</br>Tax(@ 8.0%): $1.56</br>Total: $22.56</div>';
+		//cart = cart +'<div style="float:right; text-align:right;">Subtotal: '+json.subtotal+'<br/>Discount: -$0</br>Tax(@ 8.0%): '+json.discount+'</br>Total: '+json.total+'</div>';
 		cart = cart +'<div style="float:right;clear:both;margin-top:20px;"><input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/></div>';
 	$('#shoppingCart').html(cart);
+	*/
   }
 
  function checkout(){
@@ -117,13 +150,16 @@ function createShoppingCart(){
  }
   
  function updateServerSideCart(id,quantity){
+	 console.log('id:'+id);
+	 var dataSet = JSON.stringify({
+			cartItemId : id,
+			qty: quantity
+		});
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/cart/updateCartItem",
-		data :{
-			"cartItemId" : id,
-			"qty": quantity
-		},
-		type: "post", //send it through get method
+		data :dataSet,
+		contentType: "application/json; charset=utf-8",
+		type: "POST", //send it through get method
 		success: function(json) {
 			console.log('success');
 		},
@@ -135,12 +171,12 @@ function createShoppingCart(){
  
   
 function deleteItem(itemid){
+			
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/cart/removeItem",
-		data :{
-			"cartItemId" : itemid
-		},
-		type: "post", //send it through get method
+		data : ''+itemid,
+		contentType: "text/xml",
+		type: "POST", //send it through get method
 		success: function(json) {
 			console.log('deleted item successfully');
 			createShoppingCart();

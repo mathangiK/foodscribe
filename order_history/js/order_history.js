@@ -18,6 +18,46 @@ jQuery.validator.setDefaults({
     $(function() {
         // The DOM is ready!
 		
+		var headers = {
+			userid: Number.parseInt(localStorage.getItem("token"))
+		};
+		var color_code ='';
+		$.ajax({
+			url: "https://foodscribe-backend.herokuapp.com/order/orderList",
+			headers : headers,
+			contentType: "application/json; charset=utf-8",
+			type: "get", //send it through get method
+			success: function(json) {
+				console.log(json);
+				$.each(json, function(i, item) {
+					if(json == ''){
+						//$('#orderTable').addClass('emptyjson');
+						
+						switch(item.orderStatus){
+							case "In Progress": color_code = 'color-code-progress';
+											break;
+							case "Delivered":  color_code = 'color-code-delivered';
+											break;
+							default:  color_code = 'color-code-progress';
+											break;
+						}
+						var tableRec =	'<tr>'+
+								'<td class="'+color_code+'"><a href="../tracking_page/tracking_page.html?orderId='+item.id+'">#'+item.id+'</a></td>'+
+								'<td>'+item.orderDate+'</td>'+
+								'<td>'+item.orderTotal+'</td>'+
+								'<td>'+item.orderStatus+'</td>'+
+							'</tr>';
+							$('#tableBody').append(tableRec);
+					}
+				});
+				
+			},
+			error: function(xhr) {
+			//Do Something to handle error
+			}
+		});	
+		
+		
 		var table = $('#orderTable').DataTable({
 			responsive: true
 		});
@@ -32,7 +72,7 @@ jQuery.validator.setDefaults({
 				$(this).addClass('selected');
 				
 			}
-		} );
+		});
 		
     });
 	

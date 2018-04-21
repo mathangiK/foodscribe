@@ -68,6 +68,9 @@ var parameters = '';
 			$.ajax({
 				url: "https://foodscribe-backend.herokuapp.com/menu/"+parameters,
 				type: "get", //send it through get method
+				header : {
+					"Access-Control-Allow-Origin" : "*"
+				},
 				success: function(json) {
 					if(json.length == 0){
 						var resString = "<p style='margin-top:3	%;'>We are Sorry! No Menu associated with this Restaurant currently!</p><img style='max-height:100px;' src='images/mascot.png' />";
@@ -125,13 +128,14 @@ var parameters = '';
 }));
 
 function changeOfQuantity(itemid,quantity){
-	console.log(itemid + ":$::" +quantity);
+	//console.log(localStorage.getItem("token"));
 	
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/cart/add",
 		data: JSON.stringify({ 
-				'menuitemid': itemid, 
-				'qty': quantity
+				menuItemId: itemid, 
+				qty: quantity,
+				userid:localStorage.getItem("token")
 			}),
 		type: "POST", //send it through get method
 		success: function(json) {
@@ -140,12 +144,12 @@ function changeOfQuantity(itemid,quantity){
 		},
 		error: function(xhr) {
 		//Do Something to handle error
-		console.log(xhr)
+			console.log(xhr);
 		},
-		contentType: "application/json; charset=utf-8",
-		dataType : "json"
+		contentType: 'application/json; charset=UTF-8',
+		dataType : 'text'
 	});
-	
+	//window.localStorage
 }
 
 function proceed(){

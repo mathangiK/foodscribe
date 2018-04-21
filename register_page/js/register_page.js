@@ -32,27 +32,29 @@ jQuery.validator.setDefaults({
                }
             },
 			submitHandler : function(form){
-				console.log("test");
+				console.log(localStorage.getItem('token'));
 				$.ajax({
-					url: "https://foodscribe-backend.herokuapp.com/user/updateUserInfo ",
-					data: { 
-							token : window.localStorage.getItem('token'),
-							firstName: $('#firstName').value, 
-							lastName: $('#lastName').value,
-							phone: $('#phone').value,
-							steertAddress : $('#steertAddress').value
-						},
+					url: "https://foodscribe-backend.herokuapp.com/user/updateUserInfo",
+					data: JSON.stringify({ 
+							userid : Number.parseInt(localStorage.getItem('token')),
+							firstName: $('#firstName').val(), 
+							lastName: $('#lastName').val(),
+							phone: $('#phone').val()
+						}),
 					type: "POST", //send it through get method
 					success: function(json) {
 						var resString = '';
 						console.log(json);
-						var backAction = window.localStorage.getItem('backFromLogin');
-						window.location.href=backAction;
-						//window.localStorage.setItem(token, json.token);
+						if(json == "Update Success"){
+							//var backAction = localStorage.getItem('backFromLogin');
+							//window.location.href=backAction;
+						}
 					},
 					error: function(xhr) {
 					//Do Something to handle error
-					}
+					console.log('error');
+					},
+					contentType: "application/json; charset=utf-8"
 				});
 			}
          });

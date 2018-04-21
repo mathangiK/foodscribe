@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" >
-
+<!-- the file head section-->
 <head>
     <meta charset="UTF-8">
+	<!-- viewport has been enabled-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
     <title>FoodScribe</title>
 	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
 	
+	<!-- stylesheet -->
 	<link rel="stylesheet" href="css/order_history.css">
 	<link rel="stylesheet" href="css/order_table.css">
 </head>
@@ -61,7 +63,7 @@
 		  <div class="row">
 			<h1>Order History</h1>
 			<div>
-				<table id="orderTable" class="stripe">
+				<table id="orderTable" class="stripe emptyjson">
 					<thead>
 						<tr>
 							<th>Order#</th>
@@ -70,25 +72,7 @@
 							<th>Status</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr >
-							<td class="color-code-delivered"><a href="../tracking_page/tracking_page.html">#34455</a></td>
-							<td>2/3/2018</td>
-							<td>$239</td>
-							<td>Delivered</td>
-						</tr>
-						<tr >
-							<td class="color-code-progress"><a href="../tracking_page/tracking_page.html">#34445</a></td>
-							<td>2/3/2018</td>
-							<td>$239</td>
-							<td>In Progress</td>
-						</tr>
-						<tr >
-							<td class="color-code-delivered"><a href="../tracking_page/tracking_page.html">#34465</a></td>
-							<td>2/3/2018</td>
-							<td>$239</td>
-							<td>Delivered</td>
-						</tr>
+					<tbody id="tableBody">
 					</tbody>
 				</table>
 			</div>

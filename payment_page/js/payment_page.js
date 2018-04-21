@@ -26,24 +26,49 @@
 			}
 			
 			if(currentIndex == 1 && newIndex == 2){
-				
-				var deliveryAdd = {
-				name : $('#customerName').val(),
-				shippingAddres : $('#shippingAddress').val(),
-				shippingCity : $('#shippingCity').val(),
-				shippingState : $('#shippingState').val(),
-				shippingZipcode : $('#shippingZipcode').val()
+				//attach user id in data for post request
+				var deliveryAddress = {
+					shippingAddressName : $('#customerName').val(),
+					shippingAddressStreet1 : $('#shippingAddress').val(),
+					shippingAddressStreet2 : $('#shippingAddress').val(),
+					shippingAddressCity : $('#shippingCity').val(),
+					shippingAddressState : $('#shippingState').val(),
+					shippingAddressCountry : $('#shippingAddress').val(),
+					shippingAddressZipcode : $('#shippingZipcode').val()
 				};
-				var paymentInfo = {
-					cardType : $('#cardType').val(),
-					cardHolder : $('#cardHolder').val(),
+				var payment = {
+					type : $('#cardType').val(),
+					holderName : $('#cardHolder').val(),
 					cardNumber : $('#cardNumber').val(),
 					expiryMonth : $('#expiryMonth').val(),
 					expiryYear : $('#expiryYear').val(),
-					cardCVC : $('#cardCVC').val()				
+					cvc : $('#cardCVC').val()			
 				}
-				console.log(deliveryAdd);
-				console.log(paymentInfo);
+				//console.log(deliveryAddress);
+				
+				
+				var jsonData = JSON.stringify({ 
+								deliveryAddress: deliveryAddress, 
+								payment: payment,
+								userid: Number.parseInt(localStorage.getItem("token")) 
+							});
+				console.log(jsonData);
+					$.ajax({
+						url: "https://foodscribe-backend.herokuapp.com/checkout/checkout",
+						data: jsonData,
+						type: "POST", //send it through get method
+						success: function(json) {
+							var resString = '';
+							console.log(json);	
+						},
+						error: function(xhr) {
+						//Do Something to handle error
+							console.log(xhr);
+						},
+						contentType: 'application/json; charset=UTF-8',
+						dataType : 'text'
+					});
+				
 				
 				if(true){
 					$('#info').html('<p>Order Placed. Please track your order <a href="#">here</a></p>'); 

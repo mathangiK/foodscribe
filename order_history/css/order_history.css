@@ -221,6 +221,10 @@ main {
 	border-left: 2px solid orange;
 }
 
+.emptyjson {
+	display:none;
+}
+
 /*order management css begin*/
 
 @media screen and (min-width: 961px) {

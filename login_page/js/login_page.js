@@ -10,6 +10,7 @@ jQuery.validator.setDefaults({
 	   alert("Success! The form was pretend-submitted!");
 	}
 });
+
 (function(yourcode) {
     // The global jQuery object is passed as a parameter
     yourcode(window.jQuery, window, document);
@@ -41,8 +42,7 @@ jQuery.validator.setDefaults({
  
                },
                login_password: {
-                  required: true,
-                  minlength: minPassLen
+                  required: true
  
                },
             },
@@ -57,24 +57,29 @@ jQuery.validator.setDefaults({
                }
             },
 			submitHandler : function(form){
+				
+				var datajson = JSON.stringify({ 
+					useremail: $('#login_username').val(), 
+					password: $('#login_password').val()
+				});
+				console.log(datajson);
+				
 				$.ajax({
 					url: "https://foodscribe-backend.herokuapp.com/token",
-					data: JSON.stringify({ 
-							username: $('#login_username').value, 
-							password: $('#login_password').value 
-						}),
+					data: datajson,
 					type: "POST", //send it through get method
 					success: function(json) {
 						var resString = '';
-						console.log(json);
-						window.localStorage.setItem("token", json.token);
+						console.log(json.userId);
+						localStorage.setItem('token', json.userId);
 					},
-					error: function(xhr) {
-					//Do Something to handle error
+					error: function(xhr, status, error) {
+					  //var err = eval('(' +  + ')');
+					  console.log(xhr.responseText);
 					},
-					contentType: "application/json; charset=utf-8",
-					dataType : "json"
+					contentType: "application/json"
 				});
+				
 			}
          });
 	});
@@ -88,8 +93,8 @@ jQuery.validator.setDefaults({
                   email:true
                },
                signup_password: {
-                  required: true,
-                  minlength: minPassLen
+                  required: true
+                  //minlength: minPassLen
                },
 			   signup_confirmPass: {
 				   equalTo: "#signup_password"
@@ -114,10 +119,9 @@ jQuery.validator.setDefaults({
 				$.ajax({
 					type: "POST",
 					url: "https://foodscribe-backend.herokuapp.com/user/newUser",
-					data: JSON.stringify({
-							'username': 'test', 
-							'email' : $('#signup_email').value,
-							'password' : $('#signup_password').value							
+					data: JSON.stringify({ 
+							email : $('#signup_email').val(),
+							password : $('#signup_password').val()							
 						}),
 					contentType: "application/json; charset=utf-8",
 					dataType : "json",
@@ -125,8 +129,10 @@ jQuery.validator.setDefaults({
 					success: function(json) {
 						var resString = '';
 						console.log(json);
-						window.localStorage.setItem(token, json.token);
-						window.location.href = '../register_page/register_page.html';
+						if(json.userid!=0){
+							localStorage.setItem("token", json.userid);
+							window.location.href = '../register_page/register_page.html';
+						}
 					},
 					error: function(xhr) {
 					//Do Something to handle error
