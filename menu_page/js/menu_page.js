@@ -229,9 +229,11 @@ function changeOfQuantity(itemid,quantity){
 function proceed(){
 	var items = localStorage.getItem('token');
 	if (items === null || items.length === 0){
+    localStorage.setItem("backAfterLogin",  window.location.href);
 		window.location.href = '../login_page/login_page.html';
-	}
-	window.location.href = '../shopping_cart/shopping_cart.html';
+	}else{
+	   window.location.href = '../shopping_cart/shopping_cart.html';
+  }
 }
 
 function login(){

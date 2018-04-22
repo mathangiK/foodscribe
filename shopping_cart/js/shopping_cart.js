@@ -69,9 +69,9 @@ function createShoppingCart(){
 					var total  = count + (count *0.08);
 					cart = cart +'<div style="float:right; text-align:right;">Subtotal: '+count.toFixed(2)+'<br/>Discount: -$0</br>Tax(@ 8.0%): '+tax.toFixed(2)+'</br>Total: '+total.toFixed(2)+'</div>';
 					cart = cart +'<div style="float:right;clear:both;margin-top:20px;"><input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/></div>';
-					$('#shoppingCart').html(cart);
+					$('#shoppingCartSec').html(cart);
 				}else{
-          $('#shoppingCart').html('<br/><br/><div style="text-align:center">The cart is currently empty</div>');
+          $('#shoppingCartSec').html('<br/><br/><p style="text-align:middle;">The cart is currently empty. <a href="../index.html">Click</a> to add more items </p>');
         }
 			},
 			error: function(xhr) {
