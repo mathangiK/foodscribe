@@ -248,27 +248,7 @@ body{
   color: #fff;
   font-size: 18px;
 }
-.social-login{
-  position:relative;
-  float: left;
-  width: 100%;
-  height:auto;
-  padding: 10px 0 15px 0;
-  border-bottom: 1px solid #eee;
-}
 
-.social-login a i{
-  position: relative;
-  float: left;
-  width: 20px;
-  top: 2px;
-}
-.social-login a:first-child{
-  background-color: #49639F;
-}
-.social-login a:last-child{
-  background-color: #DF4A32;
-}
 .email-login,.email-signup{
   position:relative;
   float: left;
@@ -284,6 +264,10 @@ body{
 
 .u-form-group input:focus{
   border-color: #358efb;
+}
+
+.header_login{
+	display:none !important;
 }
 
 .forgot-password{
@@ -363,7 +347,7 @@ body{
   -moz-transition:all 0.1s linear;
   transition:all 0.1s linear;
 }
-  
+
   .login-image-container{
    display: inline-block;
    float: none;
@@ -376,14 +360,14 @@ body{
   float: none;
   vertical-align: middle;
 }
-  
-}  
+
+}
 
 @media screen and (max-width: 960px) {
   div.hideMascotForPhone {
     display: none;
   }
-  
+
   .login-box{
     position:relative;
     margin: 8px auto;
@@ -423,7 +407,7 @@ body{
   border-radius: 2px;
   text-transform: uppercase;
 }
-  
+
   .u-form-group input[type="email"],
 .u-form-group input[type="password"]{
   width: 90%;
@@ -438,4 +422,4 @@ body{
   -moz-transition:all 0.1s linear;
   transition:all 0.1s linear;
 }
-}  
+}

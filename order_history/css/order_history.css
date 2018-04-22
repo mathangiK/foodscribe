@@ -74,6 +74,11 @@ header {
 	float: right;
 }
 
+.header_login{
+	display:none !important;
+}
+
+
 #menu span:after {
 	width: 0;
 	height: 0;
@@ -232,7 +237,7 @@ main {
     padding: 3rem 0 4rem;
     text-align: center;
   }
- 
+
   .order-panel{
     padding: 1%;
   }
@@ -249,6 +254,6 @@ main {
     text-align: center;
 
   }
-  
+
 }
 /*order management css end*/

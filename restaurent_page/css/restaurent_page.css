@@ -6,10 +6,10 @@ body {
   text-align: center;
   background-color: #fff;
 }
-* { 
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box; 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1,h2,h3,h4,h5 {
@@ -50,14 +50,19 @@ header {
   color: #fff;
   display: block;
   font-size: 24px;
-}  
+}
 #logo a img {
   width = 150px;
   height=45px
-} 
+}
 #menu {
   float: right;
 }
+
+.header_login{
+	display:none !important;
+}
+
 #menu span:after {
   width: 0;
   height: 0;
@@ -76,7 +81,7 @@ header {
   display: inline;
 
 }
-#menu ul li {  
+#menu ul li {
   display: inline-block;
   margin-right: -4px;
   position: relative;
@@ -102,11 +107,11 @@ header {
   position: absolute;
   visibility: hidden;
 }
-#menu ul li ul li { 
-  display: block; 
+#menu ul li ul li {
+  display: block;
   width: 140px;
   margin: 0;
-} 
+}
 #menu ul li.sub ul li a:hover {
   background-color: #f25c00 !important;
 }
@@ -133,7 +138,7 @@ header {
     background-color: #f25c00 !important;
     color: #fff !important;
   }
-}  
+}
 @media screen and (max-width: 960px) {
   #mobbtn {
     display: block;
@@ -148,18 +153,18 @@ header {
     max-height: 100%;
     overflow: auto;
   }
-  #menu.mobile ul li, 
+  #menu.mobile ul li,
   #menu.mobile ul li ul li {
     display: block;
     margin: 0;
     width: auto !important;
   }
-  #menu.mobile ul li a, 
+  #menu.mobile ul li a,
   #menu.mobile ul li ul li a {
     background-color: #333;
     color: #fff;
   }
-  #menu.mobile ul li a:hover, 
+  #menu.mobile ul li a:hover,
   #menu.mobile ul li ul li a:hover {
     background-color: #333;
   }
@@ -203,8 +208,8 @@ main {
 }
 
 .restaurent-card .checkoverflow{
-	white-space: nowrap; 
-	overflow: hidden; 
+	white-space: nowrap;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -215,7 +220,7 @@ main {
 }
 
 .restaurent-card .aside{
-  position:relative;  
+  position:relative;
 }
 .restaurent-card .aside img{
   max-width: 100%;
@@ -259,11 +264,11 @@ main {
   margin: 0;
   font-weight: 300;
 }
-  
+
   .restaurent-card .mobile_cards{
     display:none;
   }
-  
+
   .restaurent-card .desktop_card{
     display:block;
   }
@@ -275,38 +280,38 @@ main {
   padding: 2rem 0 2rem;
   text-align: center;
 }
-  
+
   .restaurent-card .aside img{
     display:none;
   }
-  
+
   .restaurent-card .mobile{
     display:inline-block !important;
   }
-  
+
   .restaurent-card .desktop_card{
     display:none;
   }
-  
+
   .restaurent-card .mobile_cards{
 	padding:1px;
     display:block;
     white-space:nowrap;
-    margin:0; 
+    margin:0;
   }
-  
+
   .restaurent-card .inline-item{
 	vertical-align: middle;
     display:inline-block;
     margin-left:2%;
-	
+
   }
   .restaurent-card .textStyling{
 	  font-size:1.4em;
 	  color:orange;
   }
-  
-  
+
+
   .restaurent-card .logo-style{
 	border-radius: 5px;
     margin-left: 0;

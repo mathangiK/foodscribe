@@ -74,6 +74,10 @@ header {
 	float: right;
 }
 
+.header_login{
+	display:none !important;
+}
+
 #menu span:after {
 	width: 0;
 	height: 0;
@@ -137,6 +141,7 @@ header {
 	opacity: 1;
 	visibility: visible;
 }
+
 
 #mobbtn {
 	background-color: #f25c00;
@@ -319,7 +324,7 @@ h5 {
 	.menu-items .quantity{
 		width:30%;
 	}
-}	
+}
 
 @media screen and (max-width: 600px) {
 	.menu-items table#cart tbody td .form-control {
@@ -369,5 +374,5 @@ h5 {
 	.menu-items .quantity{
 		width:100%;
 	}
-	
+
 }

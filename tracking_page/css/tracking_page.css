@@ -6,10 +6,10 @@ body {
   text-align: center;
   background-color: #fff;
 }
-* { 
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box; 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul {
   margin: 0;
@@ -23,6 +23,10 @@ a {
 }
 a:focus {
   outline: 0;
+}
+
+.header_login{
+	display:none !important;
 }
 
 header {
@@ -202,16 +206,16 @@ main {
     padding: 8rem 0 7rem;
     text-align: center;
   }
-  
+
   .order-form{
     margin-left:6%;
 	margin-right:6%;
     text-align:left;
   }
   .mascot-container{
-    padding-bottom:8%; 
+    padding-bottom:8%;
   }
-  
+
   #mascot-animation{
     left:6%;
     position:absolute;
@@ -222,27 +226,27 @@ main {
     border-radius: 5px;
     padding: 1%;
   }
-  
+
    .order-form hr{
     margin-top:0px !important;
      margin-right:20px !important;
      margin-bottom:0px !important;
   }
-  
+
   div#mascot-animation img {
     -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out; 
-    -o-transition: all 1s ease-in-out; 
-    -ms-transition: all 1s ease-in-out; 
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
     border-radius:60px;
     transition-duration: 1s;
   }
 
-  div#mascot-animation img:hover { 
-    -webkit-transform: rotate(360deg); 
-    -moz-transform: rotate(360deg); 
+  div#mascot-animation img:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg); 
+    -ms-transform: rotate(360deg);
     transform: translate()
   }
 }
@@ -259,14 +263,14 @@ main {
     text-align:left;
     background-color: #FFFAF0;
     border-radius: 4px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   }
   #mascot-animation{
     display:none;
   }
   .order-panel{
     text-size : 5px;
-    
+
   }
   .order-form hr{
     margin:0px !important;
@@ -278,7 +282,7 @@ main {
 
   }
   .order-label{
-    text-weight: bold; 
+    text-weight: bold;
   }
 }
 /*order management css end*/

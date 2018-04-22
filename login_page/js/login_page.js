@@ -3,19 +3,12 @@ var minPassLen = 8, maxPassLen = 4096;
 var passwordMsg = "Password must greater than " + minPassLen + " characters";
 var usernameMsg = "Please enter a valid email address";
 var matchpassword = "The Passwords do not match";
-jQuery.validator.setDefaults({
-	    //Avoids form submit. Comment when in production.
-	success: "valid",
-	submitHandler: function() {
-	   alert("Success! The form was pretend-submitted!");
-	}
-});
 
 (function(yourcode) {
     // The global jQuery object is passed as a parameter
     yourcode(window.jQuery, window, document);
 }(function($, window, document) {
-    // The $ is now locally scoped 
+    // The $ is now locally scoped
     $(function() {
         // The DOM is ready!
 		$(".email-signup").hide();
@@ -32,18 +25,18 @@ jQuery.validator.setDefaults({
 		  $("#signup-box-link").removeClass("active");
 		});
     });
-	
+
 	$("#login").click(function(){
 		$("#signinForm").validate({
             rules: {
                login_username: {
                   required: true,
                   email:true
- 
+
                },
                login_password: {
                   required: true
- 
+
                },
             },
             messages: {
@@ -57,13 +50,13 @@ jQuery.validator.setDefaults({
                }
             },
 			submitHandler : function(form){
-				
-				var datajson = JSON.stringify({ 
-					useremail: $('#login_username').val(), 
+
+				var datajson = JSON.stringify({
+					useremail: $('#login_username').val(),
 					password: $('#login_password').val()
 				});
 				console.log(datajson);
-				
+
 				$.ajax({
 					url: "https://foodscribe-backend.herokuapp.com/token",
 					data: datajson,
@@ -71,12 +64,17 @@ jQuery.validator.setDefaults({
 					success: function(json) {
 						var resString = '';
 						console.log(json.userId);
-						localStorage.setItem('token', json.userId);
-						
-						var backaction = localStorage.getItem('backAfterLogin');
-						localStorage.removeItem('backAfterLogin');
-						window.location.href= backaction;
-						
+						if(json.userId == 0){
+							$('#errorMessage').html('Unsuccessful login attempt, try again');
+							$('#login_username').val('');
+							$('#login_password').val('');
+						}else{
+							localStorage.setItem('token', json.userId);
+
+							var backaction = localStorage.getItem('backAfterLogin');
+							localStorage.removeItem('backAfterLogin');
+							window.location.href= backaction;
+						}
 					},
 					error: function(xhr, status, error) {
 					  //var err = eval('(' +  + ')');
@@ -84,12 +82,12 @@ jQuery.validator.setDefaults({
 					},
 					contentType: "application/json"
 				});
-				
+
 			}
          });
 	});
-	
-	
+
+
 	$("#signup").click(function(){
 		$("#signupForm").validate({
             rules: {
@@ -124,9 +122,9 @@ jQuery.validator.setDefaults({
 				$.ajax({
 					type: "POST",
 					url: "https://foodscribe-backend.herokuapp.com/user/newUser",
-					data: JSON.stringify({ 
+					data: JSON.stringify({
 							email : $('#signup_email').val(),
-							password : $('#signup_password').val()							
+							password : $('#signup_password').val()
 						}),
 					contentType: "application/json; charset=utf-8",
 					dataType : "json",
@@ -146,6 +144,6 @@ jQuery.validator.setDefaults({
 			}
          });
 	});
-	
+
   // The rest of your code goes here!
 }));

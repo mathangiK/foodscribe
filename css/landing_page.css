@@ -6,10 +6,10 @@ body {
   text-align: center;
   background-color: #fff;
 }
-* { 
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box; 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul {
   margin: 0;
@@ -24,6 +24,12 @@ a {
 a:focus {
   outline: 0;
 }
+
+
+.header_login{
+	display:none !important;
+}
+
 header {
   background-color: #f9a603;
   background: linear-gradient(to right, black 10%, #f9a603);
@@ -46,11 +52,11 @@ header {
   color: #fff;
   display: block;
   font-size: 24px;
-}  
+}
 #logo a img {
   width = 150px;
   height=45px
-} 
+}
 #menu {
   float: right;
 }
@@ -65,14 +71,14 @@ header {
   display: inline-block;
   position: relative;
   right: -6px;
-  
+
 }
 #menu ul {
   text-align: left;
   display: inline;
- 
+
 }
-#menu ul li {  
+#menu ul li {
   display: inline-block;
   margin-right: -4px;
   position: relative;
@@ -98,11 +104,11 @@ header {
   position: absolute;
   visibility: hidden;
 }
-#menu ul li ul li { 
-  display: block; 
+#menu ul li ul li {
+  display: block;
   width: 140px;
   margin: 0;
-} 
+}
 #menu ul li.sub ul li a:hover {
   background-color: #f25c00 !important;
 }
@@ -129,7 +135,7 @@ header {
     background-color: #f25c00 !important;
     color: #fff !important;
   }
-}  
+}
 @media screen and (max-width: 960px) {
   #mobbtn {
     display: block;
@@ -144,18 +150,18 @@ header {
     max-height: 100%;
     overflow: auto;
   }
-  #menu.mobile ul li, 
+  #menu.mobile ul li,
   #menu.mobile ul li ul li {
     display: block;
     margin: 0;
     width: auto !important;
   }
-  #menu.mobile ul li a, 
+  #menu.mobile ul li a,
   #menu.mobile ul li ul li a {
     background-color: #333;
     color: #fff;
   }
-  #menu.mobile ul li a:hover, 
+  #menu.mobile ul li a:hover,
   #menu.mobile ul li ul li a:hover {
     background-color: #333;
   }
@@ -196,7 +202,7 @@ main {
   color: black;
 }
 
-.search .one-third, 
+.search .one-third,
 .search .two-thirds {
   background: white;
   background: rgba(255,255,255,.3);
@@ -233,7 +239,7 @@ main {
   margin: 10px auto;
   width: 50%;
   display: block;
-} 
+}
 
 .search .two-thirds p:last-child {
   margin-bottom: 0;
@@ -260,14 +266,14 @@ main {
 	background: #f25c00;
 }
 /*for text container*/
-.textcontainer { 
-   color: white; 
-   font:  18px/45px Helvetica, Sans-Serif; 
+.textcontainer {
+   color: white;
+   font:  18px/45px Helvetica, Sans-Serif;
   text-align: left;
-   letter-spacing: -1px;  
+   letter-spacing: -1px;
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
-   padding: 10px; 
+   padding: 10px;
 }
 
 /*line under headings*/
@@ -280,9 +286,9 @@ main {
      position: relative;
      width: 100px;
  }
- 
+
 .partner{
-  background-color:#fef1d5;  
+  background-color:#fef1d5;
 }
 
 footer {

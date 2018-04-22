@@ -6,10 +6,10 @@ body {
   text-align: center;
   background-color: #fff;
 }
-* { 
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box; 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul {
   margin: 0;
@@ -23,6 +23,10 @@ a {
 }
 a:focus {
   outline: 0;
+}
+
+.header_login{
+	display:none !important;
 }
 
 header {
@@ -203,7 +207,7 @@ main {
     padding: 3rem 0 7rem;
     text-align: center;
   }
-  
+
   .order-form{
     margin-left:6%;
 	margin-right:6%;
@@ -211,9 +215,9 @@ main {
 	font-family: 'Playfair Display', serif;
   }
   .mascot-container{
-    padding-bottom:8%; 
+    padding-bottom:8%;
   }
-  
+
   #mascot-animation{
     left:6%;
     position:absolute;
@@ -222,7 +226,7 @@ main {
   .order-panel{
     padding: 1%;
   }
-  
+
   .order-panel .restaurentName {
 	font-size: 1.5em;
 }
@@ -231,23 +235,23 @@ main {
 	font-size: 1em;
 	color: 	#484848;
 }
-  
+
     .box{
     margin:2%;
   }
-  
+
    .order-form hr{
     margin-top:0px !important;
      margin-right:20px !important;
      margin-bottom:0px !important;
   }
-  
+
   .checkout-button {
 	  float:right;
 	  margin-right:2%;
   }
-  
-  
+
+
   .modalDialog {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
@@ -262,7 +266,7 @@ main {
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 	pointer-events: none;
-}	
+}
 
 .modalDialog:target {
 	opacity:1;
@@ -300,8 +304,8 @@ main {
 }
 
 .close:hover { background: #00d9ff; }
-  
- 
+
+
 }
 
 @media screen and (max-width: 960px) {
@@ -316,14 +320,14 @@ main {
     text-align:left;
     background-color: #FFFAF0;
     border-radius: 4px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   }
   #mascot-animation{
     display:none;
   }
   .order-panel{
     text-size : 5px;
-    
+
   }
   .order-form hr{
     margin:0px !important;
@@ -335,13 +339,13 @@ main {
 
   }
   .order-label{
-    text-weight: bold; 
+    text-weight: bold;
   }
-  
+
   .checkout-button {
 	  margin-right:1%;
   }
-  
+
   .desktop{
 	  display:none;
   }

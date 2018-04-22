@@ -7,11 +7,10 @@ var freeDeliveryArray = [];
 
 }(function($, window, document) {
 
-    // The $ is now locally scoped 
+    // The $ is now locally scoped
     $(function() {
 
-        // The DOM is ready!
-		
+    // The DOM is ready!
 		var $window = $(window),
 		$menu = $('#menu');
 		$window.resize(function resize(){
@@ -21,11 +20,65 @@ var freeDeliveryArray = [];
 			$menu.removeClass('mobile');
 		}).trigger('resize');
 
+
+    var items = JSON.parse(localStorage.getItem('token'))
+    if (items === null || items.length === 0){
+      $('#loggedInHeader').addClass('header_login');
+      $('#shoppingCart').addClass('header_login');
+    }else{
+      $('#loginHeader').addClass('header_login');
+    }
+
+
+    $('#menu li.sub').on('click', function(e) {
+      e.stopPropagation();
+      $(this).toggleClass('open');  $(this).siblings().removeClass('open');
+    });
+    $(document).on('click', function() {
+       $('#menu li.sub').removeClass('open');
+    });
+    /* TOGGLE SLIDE MOBILE MENU */
+    $('#mobbtn').on('click', function(){
+      if($(this).hasClass('active')){
+      $(this).removeClass('active');
+        $(this).html("&#9776;");
+      $('.mobile').animate({
+        right:"-220px"
+      });
+      $(this).animate({
+        right:"0"
+      });
+      }
+      else {
+      $(this).addClass('active');
+      $(this).html("&#9587;");
+      $('.mobile').animate({
+        right:"0",
+      });
+      $('#mobbtn').animate({
+        right:"220px"
+      });
+      }
+    });
+    $('.content').on('click', function() {
+      if($('#mobbtn').hasClass('active')){
+        $('#mobbtn').removeClass('active');
+        $('#mobbtn').html("&#9776;");
+        $('.mobile').animate({
+          right:"-220px"
+        });
+        $('#mobbtn').animate({
+          right:"0"
+        });
+      }
+    });
+
+
         parameters = getUrlParameter('locationInfo');
         console.log(parameters);
         if (parameters != typeof(undefined)) {
-			pullResData('nearestRestaurents','');
-		}
+  			     pullResData('nearestRestaurents','');
+  		  }
         $('#showMoreNearest').bind('click', function() {
             hideSection('Nearest')
         });
@@ -51,9 +104,9 @@ var freeDeliveryArray = [];
     };
 
     var pullResData = function(divElement,type) {
-		
+
 		if(divElement != 'restaurentList'){
-			
+
 			$.ajax({
 			  url: "https://foodscribe-backend.herokuapp.com/restaurant/"+parameters,
 			  type: "get", //send it through get method
@@ -116,8 +169,8 @@ var freeDeliveryArray = [];
 				});
 				resString = resString + '</div>';
 				$("#" + divElement).html(resString);
-				
-				
+
+
 				var freeDeliveryString = '<div class="row">';
 				$.each(freeDeliveryArray, function(i, item) {
 					if (i == 4) {
@@ -233,61 +286,22 @@ var freeDeliveryArray = [];
         console.log(type);
         $('#initialSection').hide();
 
-
         $('#showMore').show();
         pullResData('restaurentList',type);
 		allRecords = [];
         //
     }
-	
+
+
+
 
     // The rest of your code goes here!
 
 }));
 
 
-$('#menu li.sub').on('click', function(e) {
-  e.stopPropagation();
-  $(this).toggleClass('open');  $(this).siblings().removeClass('open');
-});
-$(document).on('click', function() {
-   $('#menu li.sub').removeClass('open'); 
-});
-/* TOGGLE SLIDE MOBILE MENU */
-$('#mobbtn').on('click', function(){
-  if($(this).hasClass('active')){
-  $(this).removeClass('active');
-	$(this).html("&#9776;");
-  $('.mobile').animate({
-	right:"-220px"
-  });
-  $(this).animate({
-	right:"0"
-  }); 
-  }
-  else {
-  $(this).addClass('active');
-  $(this).html("&#9587;");
-  $('.mobile').animate({
-	right:"0",
-  });
-  $('#mobbtn').animate({
-	right:"220px"
-  });
-  } 
-});
-$('.content').on('click', function() { 
-  if($('#mobbtn').hasClass('active')){
-	$('#mobbtn').removeClass('active');
-	$('#mobbtn').html("&#9776;");
-	$('.mobile').animate({
-	  right:"-220px"
-	});
-	$('#mobbtn').animate({
-	  right:"0"
-	});
-  } 
-});
+//header section - for mobile and subheader
+
 
 //this function will redirect to menu page of selected restaurant
 function redirectToMenuPage(resId) {
@@ -299,4 +313,9 @@ function redirectToMenuPage(resId) {
 //save the currentURL to be used as back URL after login
 function login(){
 	localStorage.setItem("backAfterLogin", window.location.href);
+}
+
+function logoutLogic(){
+  localStorage.removeItem("token");
+  window.location.href="../index.html"
 }

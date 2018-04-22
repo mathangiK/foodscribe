@@ -12,12 +12,18 @@ var count = 0;
 	$menu.removeClass('mobile');
 	$orderprogress.removeClass('mobile');
 	}).trigger('resize');
-  
+
 	var orderId = getUrlParameter('orderId') || '';
 	if(orderId == ''){
 		window.location.href = '../error.html'
 	}
-  
+
+	var items = JSON.parse(localStorage.getItem('token'))
+	if (items === null || items.length === 0){
+			localStorage.setItem("backAfterLogin", window.location.href);
+			window.location.href="../login_page/login_page.html";
+	}
+
 	function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
@@ -32,18 +38,14 @@ var count = 0;
             }
         }
     };
-  
+
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/order/"+orderId,
 		type: "get", //send it through get method
 		success: function(json) {
-			
+
 			if(json!=''){
 			console.log(json);
-			
-			
-
-				
 				var step1,step2,step3,step4;
 				switch(json.orderStatus){
 					case "created" : count = 0;
@@ -59,7 +61,7 @@ var count = 0;
 								step4='';
 								break;
 				}
-				
+
 				var trackingData = '<div id="orderProgress ">'+
 				  '<div class="row mascot-container">'+
 					'<div id="mascot-animation">'+
@@ -121,10 +123,10 @@ var count = 0;
 				'</div>'+
 				'</div>'+
 			  '</form>';
-				
-				
+
+
 				$('#orderSection').html(trackingData);
-				
+
 				if(count>0){
 					var precent = (count * (32-(count*1.5)));
 					count += 1;
@@ -140,18 +142,19 @@ var count = 0;
 		error: function(xhr) {
 		//Do Something to handle error
 		}
-	});	
-  
+	});
+
 
 
 })(jQuery);
 /* OPEN SUB-MENU ON CLICK */
+
 $('#menu li.sub').on('click', function(e) {
   e.stopPropagation();
   $(this).toggleClass('open');  $(this).siblings().removeClass('open');
 });
 $(document).on('click', function() {
-  $('#menu li.sub').removeClass('open'); 
+  $('#menu li.sub').removeClass('open');
 });
 /* TOGGLE SLIDE MOBILE MENU */
 $('#mobbtn').on('click', function(){
@@ -163,7 +166,7 @@ $('#mobbtn').on('click', function(){
     });
     $(this).animate({
       right:"0"
-    }); 
+    });
   }
   else {
     $(this).addClass('active');
@@ -174,9 +177,9 @@ $('#mobbtn').on('click', function(){
     $('#mobbtn').animate({
       right:"220px"
     });
-  } 
+  }
 });
-$('.content').on('click', function() { 
+$('.content').on('click', function() {
   if($('#mobbtn').hasClass('active')){
     $('#mobbtn').removeClass('active');
     $('#mobbtn').html("&#9776;");
@@ -186,8 +189,11 @@ $('.content').on('click', function() {
     $('#mobbtn').animate({
       right:"0"
     });
-  } 
+  }
 });
 
-/*Order Management Begin*/
-/*Order Management End*/
+
+function logoutLogic(){
+  localStorage.removeItem("token");
+  window.location.href="../index.html"
+}

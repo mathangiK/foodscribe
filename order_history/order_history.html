@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
     <title>FoodScribe</title>
 	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
-	
+
 	<!-- stylesheet -->
 	<link rel="stylesheet" href="css/order_history.css">
 	<link rel="stylesheet" href="css/order_table.css">
@@ -28,33 +28,23 @@
             </div>
             <div id="mobbtn">&#9776;</div>
                 <!--The following code describes the menu of the webiste with navigation to external websites-->
-			<nav id="menu">
-			  <ul>
-				<li>
-					<a href="../index.html">Home</a>
-				</li>
-				<li>
-					<a href="#">Deals</a>
-				</li>
-				<li>
-					<a href="#">FAQ</a>
-				</li>
-				<li>
-					<a href="#">Contact</a>
-				</li>
-				<li class="sub">
-					<a href="#"><span>Account</span></a>
-					<ul>
-						<li><a href="#">Orders</a></li>
-						<li><a href="tracking_page/tracking_page.html">Tracking</a></li>
-						<li><a href="#">Settings</a></li>
-					</ul>			
-				</li>
-				<li>
-					<a href="#">Login</a>
-				</li>
-			  </ul>
-			</nav>
+                <nav id="menu">
+          			  <ul>
+          				<li>
+          					<a href="../index.html">Home</a>
+          				</li>
+          				<li id="loggedInHeader" class="sub">
+          					<a href="#"><span>Account</span></a>
+          					<ul>
+          						<li><a href="../order_history/order_history.html">Orders</a></li>
+          						<li><a href="../index.html" onclick="logoutLogic();">Logout</a></li>
+          					</ul>
+          				</li>
+                  <li id="shoppingCart">
+                    <a href="../shopping_cart/shopping_cart.html">Shopping Cart</a>
+                  </li>
+          			  </ul>
+          			</nav>
             </div>
         </header>
 <main>
@@ -85,7 +75,7 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
    <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  
+
   <script  src="js/order_history.js"></script>
 </body>
 

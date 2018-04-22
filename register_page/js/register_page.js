@@ -7,11 +7,11 @@ var matchpassword = "The Passwords do not match";
     // The global jQuery object is passed as a parameter
     yourcode(window.jQuery, window, document);
 }(function($, window, document) {
-    // The $ is now locally scoped 
+    // The $ is now locally scoped
     $(function() {
         // The DOM is ready!
     });
-	
+
 	$("#updateInfo").click(function(){
 		$("#registerForm").validate({
             rules: {
@@ -31,9 +31,9 @@ var matchpassword = "The Passwords do not match";
 				console.log(localStorage.getItem('token'));
 				$.ajax({
 					url: "https://foodscribe-backend.herokuapp.com/user/updateUserInfo",
-					data: JSON.stringify({ 
+					data: JSON.stringify({
 							userid : Number.parseInt(localStorage.getItem('token')),
-							firstName: $('#firstName').val(), 
+							firstName: $('#firstName').val(),
 							lastName: $('#lastName').val(),
 							phone: $('#phone').val()
 						}),
@@ -56,8 +56,8 @@ var matchpassword = "The Passwords do not match";
 			}
          });
 	});
-	
-	
+
+
 	$("#signup").click(function(){
 		$("#signupForm").validate({
             rules: {
@@ -90,9 +90,9 @@ var matchpassword = "The Passwords do not match";
 				console.log('signup');
 				/*$.ajax({
 					url: "https://foodscribe-backend.herokuapp.com/token",
-					data: { 
-							username: $('#login_username').value, 
-							password: $('#login_password').value 
+					data: {
+							username: $('#login_username').value,
+							password: $('#login_password').value
 						},
 					type: "post", //send it through get method
 					success: function(json) {
@@ -107,6 +107,50 @@ var matchpassword = "The Passwords do not match";
 			}
          });
 	});
-	
+
   // The rest of your code goes here!
 }));
+
+//header section - for mobile and subheader
+$('#menu li.sub').on('click', function(e) {
+  e.stopPropagation();
+  $(this).toggleClass('open');  $(this).siblings().removeClass('open');
+});
+$(document).on('click', function() {
+   $('#menu li.sub').removeClass('open');
+});
+/* TOGGLE SLIDE MOBILE MENU */
+$('#mobbtn').on('click', function(){
+  if($(this).hasClass('active')){
+  $(this).removeClass('active');
+    $(this).html("&#9776;");
+  $('.mobile').animate({
+    right:"-220px"
+  });
+  $(this).animate({
+    right:"0"
+  });
+  }
+  else {
+  $(this).addClass('active');
+  $(this).html("&#9587;");
+  $('.mobile').animate({
+    right:"0",
+  });
+  $('#mobbtn').animate({
+    right:"220px"
+  });
+  }
+});
+$('.content').on('click', function() {
+  if($('#mobbtn').hasClass('active')){
+    $('#mobbtn').removeClass('active');
+    $('#mobbtn').html("&#9776;");
+    $('.mobile').animate({
+      right:"-220px"
+    });
+    $('#mobbtn').animate({
+      right:"0"
+    });
+  }
+});

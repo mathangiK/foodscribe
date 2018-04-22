@@ -25,36 +25,29 @@
 	</div>
 	<div id="mobbtn">&#9776;</div>
 		<!--The following code describes the menu of the webiste with navigation to external websites-->
-	<nav id="menu">
-	  <ul>
-		<li>
-			<a href="../index.html">Home</a>
-		</li>
-		<li>
-			<a href="#">Deals</a>
-		</li>
-		<li>
-			<a href="#">FAQ</a>
-		</li>
-		<li>
-			<a href="#">Contact</a>
-		</li>
-		<li class="sub">
-			<a href="#"><span>Account</span></a>
-			<ul>
-				<li><a href="#">Orders</a></li>
-				<li><a href="#">Tracking</a></li>
-				<li><a href="#">Settings</a></li>
-			</ul>			
-		</li>
-		<li>
-			<a href="#">Login</a>
-		</li>
-	  </ul>
-	</nav>
+    <nav id="menu">
+      <ul>
+      <li>
+        <a href="../index.html">Home</a>
+      </li>
+      <li id="loggedInHeader" class="sub">
+        <a href="#"><span>Account</span></a>
+        <ul>
+          <li><a href="../order_history/order_history.html">Orders</a></li>
+          <li><a href="../index.html" onclick="logoutLogic();">Logout</a></li>
+        </ul>
+      </li>
+      <li id="loginHeader">
+        <a href="../login_page/login_page.html" onclick="login();">Login</a>
+      </li>
+      <li id="shoppingCart">
+        <a href="../shopping_cart/shopping_cart.html">Shopping Cart</a>
+      </li>
+      </ul>
+    </nav>
 	</div>
    </header>
-  
+
   <main>
   <section class="section">
     <div class="order-panel">

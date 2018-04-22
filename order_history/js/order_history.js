@@ -14,10 +14,17 @@ jQuery.validator.setDefaults({
     // The global jQuery object is passed as a parameter
     yourcode(window.jQuery, window, document);
 }(function($, window, document) {
-    // The $ is now locally scoped 
+    // The $ is now locally scoped
     $(function() {
         // The DOM is ready!
-		
+
+				//section to check if user is logged in
+				var items = JSON.parse(localStorage.getItem('token'))
+				if (items === null || items.length === 0){
+						localStorage.setItem("backAfterLogin", window.location.href);
+						window.location.href="../login_page/login_page.html";
+				}
+
 		var headers = {
 			userid: Number.parseInt(localStorage.getItem("token"))
 		};
@@ -42,7 +49,7 @@ jQuery.validator.setDefaults({
 							default:  color_code = 'color-code-progress';
 											break;
 						}
-						
+
 						 tableRec = tableRec +'<tr>'+
 								'<td class="'+color_code+'"><a href="../tracking_page/tracking_page.html?orderId='+item.id+'">#'+item.id+'</a></td>'+
 								'<td>'+item.orderDate+'</td>'+
@@ -50,17 +57,17 @@ jQuery.validator.setDefaults({
 								'<td>'+item.orderStatus+'</td>'+
 							'</tr>';
 							console.log(tableRec);
-						
+
 					});
 					$('#tableBody').html(tableRec);
 				}else{
 					$('#orderTable').addClass('emptyjson');
 				}
-				
+
 				var table = $('#orderTable').DataTable({
 					responsive: true
 				});
-				
+
 				table.on( 'click', 'tr', function () {
 					if ( $(this).hasClass('selected') ) {
 						$(this).removeClass('selected');
@@ -68,23 +75,70 @@ jQuery.validator.setDefaults({
 					else {
 						table.$('tr.selected').removeClass('selected');
 						$(this).addClass('selected');
-						
+
 					}
 				});
-				
+
 			},
 			error: function(xhr) {
 			//Do Something to handle error
 			}
-		});	
-		
-		
-		
-		
-		
-		
-		
+		});
+
     });
-	
+
   // The rest of your code goes here!
 }));
+
+//header section - for mobile and subheader
+$('#menu li.sub').on('click', function(e) {
+  e.stopPropagation();
+  $(this).toggleClass('open');  $(this).siblings().removeClass('open');
+});
+$(document).on('click', function() {
+   $('#menu li.sub').removeClass('open');
+});
+/* TOGGLE SLIDE MOBILE MENU */
+$('#mobbtn').on('click', function(){
+  if($(this).hasClass('active')){
+  $(this).removeClass('active');
+    $(this).html("&#9776;");
+  $('.mobile').animate({
+    right:"-220px"
+  });
+  $(this).animate({
+    right:"0"
+  });
+  }
+  else {
+  $(this).addClass('active');
+  $(this).html("&#9587;");
+  $('.mobile').animate({
+    right:"0",
+  });
+  $('#mobbtn').animate({
+    right:"220px"
+  });
+  }
+});
+$('.content').on('click', function() {
+  if($('#mobbtn').hasClass('active')){
+    $('#mobbtn').removeClass('active');
+    $('#mobbtn').html("&#9776;");
+    $('.mobile').animate({
+      right:"-220px"
+    });
+    $('#mobbtn').animate({
+      right:"0"
+    });
+  }
+});
+
+function login(){
+	localStorage.setItem("backAfterLogin", window.location.href);
+}
+
+function logoutLogic(){
+  localStorage.removeItem("token");
+	window.location.href="../index.html";
+}

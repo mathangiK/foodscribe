@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed" rel="stylesheet">
 	<link rel="stylesheet" href="css/restaurent_page.css">
 	<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
-	
+
 	<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
 	<script src='restaurent_page.js'></script>
   </head>
@@ -16,40 +16,32 @@
     <!--The following code defines the header of the page-->
     <header>
       <!--The link to external CSS-->
-      <title>FoodScribe</title>
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+
       <div id="head-content">
         <!--The following section of the code displays the logo-->
         <div id="logo"><a href="../index.html"><img src = "https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a></div>
         <div id="mobbtn">&#9776;</div>
         <!--The following code describes the menu of the webiste with navigation to external websites-->
         <nav id="menu">
-		  <ul>
-			<li>
-				<a href="../index.html">Home</a>
-			</li>
-			<li>
-				<a href="#">Deals</a>
-			</li>
-			<li>
-				<a href="#">FAQ</a>
-			</li>
-			<li>
-				<a href="#">Contact</a>
-			</li>
-			<li class="sub">
-				<a href="#"><span>Account</span></a>
-				<ul>
-					<li><a href="#">Orders</a></li>
-					<li><a href="tracking_page/tracking_page.html">Tracking</a></li>
-					<li><a href="#">Settings</a></li>
-				</ul>			
-			</li>
-			<li>
-				<a href="../login_page/login_page.html"  onclick="login();">Login</a>
-			</li>
-		  </ul>
-        </nav>
+  			  <ul>
+  				<li>
+  					<a href="../index.html">Home</a>
+  				</li>
+  				<li id="loggedInHeader" class="sub">
+  					<a href="#"><span>Account</span></a>
+  					<ul>
+  						<li><a href="../order_history/order_history.html">Orders</a></li>
+  						<li><a href="../index.html" onclick="logoutLogic();">Logout</a></li>
+  					</ul>
+  				</li>
+  				<li id="loginHeader">
+  					<a href="../login_page/login_page.html" onclick="login();">Login</a>
+  				</li>
+          <li id="shoppingCart">
+            <a href="../shopping_cart/shopping_cart.html">Shopping Cart</a>
+          </li>
+  			  </ul>
+  			</nav>
       </div>
     </header>
     <main>
@@ -61,34 +53,34 @@
         <div class="row" style="text-align:left; margin-left:2%;">
           <h5>Free delivery<a id="showMoreFreeDelivery" href="#" ><span style="float:right;margin-right:2%;">See More&nbsp;<img src="images/right-thin-chevron.png"/></a></span></h5>
         </div>
-		
+
 		<div id="freeDelivery">
 
 		</div>
-		
+
         <div class="row" style="text-align:left; margin-left:2%;">
           <h5>Nearest to you<a id="showMoreNearest" href="#" ><span style="float:right;margin-right:2%;">See More&nbsp;<img src="images/right-thin-chevron.png"/></a></span></h5>
         </div>
-		
-		
+
+
 		<div id="nearestRestaurents">
 
 		</div>
 		</div>
       </section>
-	  
+
 	  <section class="section" id="showMore" style="display:none;">
-		<div id="restaurentList">		
+		<div id="restaurentList">
 	  </section>
-	  
-	  
+
+
 	  <section id="NoRest" style="display:none;">
 		<br/>
 		<h3>Hang in There</h3>
 		<h3>We dont service this area yet, but, we are fast getting there</h3>
 	  </section>
     </main>
-    
-	
+
+
   </body>
 </html>

@@ -10,12 +10,22 @@ var locationInfo ='77801';
     $menu.removeClass('mobile');
 }).trigger('resize');
 
+
+    //section to check if user is logged in
+    var items = JSON.parse(localStorage.getItem('token'))
+    if (items === null || items.length === 0){
+      $('#loggedInHeader').addClass('header_login');
+      $('#shoppingCart').addClass('header_login');
+    }else{
+      $('#loginHeader').addClass('header_login');
+    }
+
       var input = document.getElementById('autocomplete');
 	      var options = {
 			types: ['(regions)']
 		}
       var autocomplete = new google.maps.places.Autocomplete(input);
-	  
+
       google.maps.event.addListener(autocomplete, 'place_changed', function(){
          var place = autocomplete.getPlace();
 		 console.log(place);
@@ -26,22 +36,30 @@ var locationInfo ='77801';
 			});
 		  });
 		 console.log(locationInfo);
-		 /*$.ajax({url: "https://maps.googleapis.com/maps/api/geocode/json?place_id="+place.place_id+"&key=AIzaSyDXKFvzCmG6NLSr244J5O-UP0av6b22Ufw", success: function(result){
-			console.log(result);
-			
-			locationInfo = result.results[0].address_components[6].long_name;
-		}});*/
       })
 
 
 })(jQuery);
 /* OPEN SUB-MENU ON CLICK */
+
+//redirect to restaurant page when valid zipcode is chosen.
+function redirectToRestPage(){
+	window.location.href = 'restaurent_page/restaurent_page.html?locationInfo='+locationInfo;
+}
+
+//save the currentURL to be used as back URL after login
+function login(){
+	localStorage.setItem("backAfterLogin", window.location.href);
+}
+
+
+//header section - for mobile and subheader
 $('#menu li.sub').on('click', function(e) {
   e.stopPropagation();
   $(this).toggleClass('open');  $(this).siblings().removeClass('open');
 });
 $(document).on('click', function() {
-   $('#menu li.sub').removeClass('open'); 
+   $('#menu li.sub').removeClass('open');
 });
 /* TOGGLE SLIDE MOBILE MENU */
 $('#mobbtn').on('click', function(){
@@ -53,7 +71,7 @@ $('#mobbtn').on('click', function(){
   });
   $(this).animate({
     right:"0"
-  }); 
+  });
   }
   else {
   $(this).addClass('active');
@@ -64,9 +82,9 @@ $('#mobbtn').on('click', function(){
   $('#mobbtn').animate({
     right:"220px"
   });
-  } 
+  }
 });
-$('.content').on('click', function() { 
+$('.content').on('click', function() {
   if($('#mobbtn').hasClass('active')){
     $('#mobbtn').removeClass('active');
     $('#mobbtn').html("&#9776;");
@@ -76,14 +94,15 @@ $('.content').on('click', function() {
     $('#mobbtn').animate({
       right:"0"
     });
-  } 
+  }
 });
 
-function redirectToRestPage(){
-	window.location.href = 'restaurent_page/restaurent_page.html?locationInfo='+locationInfo;
-}
 
-//save the currentURL to be used as back URL after login
 function login(){
 	localStorage.setItem("backAfterLogin", window.location.href);
+}
+
+function logoutLogic(){
+  localStorage.removeItem("token");
+	window.location.href="../index.html";
 }
