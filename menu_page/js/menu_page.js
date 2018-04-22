@@ -155,3 +155,8 @@ function changeOfQuantity(itemid,quantity){
 function proceed(){
 	window.location.href = '../shopping_cart/shopping_cart.html';
 }
+
+
+function login(){
+	
+}

@@ -58,8 +58,30 @@
 						data: jsonData,
 						type: "POST", //send it through get method
 						success: function(json) {
-							var resString = '';
 							console.log(json);	
+							if(json!=''){
+								$('#info').html('<p>Order Placed. Please track your order <a href="tracking_page/tracking_page.html?orderId='+json.id+'">here</a></p>'); 
+								if(form.valid()){
+									$("#wizard .actions a[href='#finish']").hide();
+									$("#wizard .actions a[href='#previous']").hide();
+									
+									$('.steps .current').prevAll().removeClass('done').addClass('disabled');
+									$('.steps .current').removeClass('done current').addClass('disabled');
+									return true;
+								}
+								return false;
+							}else{
+								$('#info').html('<p>Order could not be placed. Sorry for the inconvenience. Please contact the administrator for more information. Ph: 9897655432</p>'); 
+								if(form.valid()){
+									$("#wizard .actions a[href='#finish']").hide();
+									$("#wizard .actions a[href='#previous']").hide();
+									
+									$('.steps .current').prevAll().removeClass('done').addClass('disabled');
+									$('.steps .current').removeClass('done current').addClass('disabled');
+									return true;
+								}
+								return false;
+							}
 						},
 						error: function(xhr) {
 						//Do Something to handle error
@@ -70,29 +92,7 @@
 					});
 				
 				
-				if(true){
-					$('#info').html('<p>Order Placed. Please track your order <a href="#">here</a></p>'); 
-					if(form.valid()){
-						$("#wizard .actions a[href='#finish']").hide();
-						$("#wizard .actions a[href='#previous']").hide();
-						
-						$('.steps .current').prevAll().removeClass('done').addClass('disabled');
-						$('.steps .current').removeClass('done current').addClass('disabled');
-						return true;
-					}
-					return false;
-				}else{
-					$('#info').html('<p>Order could not be placed. Sorry for the inconvenience</p>'); 
-					if(form.valid()){
-						$("#wizard .actions a[href='#finish']").hide();
-						$("#wizard .actions a[href='#previous']").hide();
-						
-						$('.steps .current').prevAll().removeClass('done').addClass('disabled');
-						$('.steps .current').removeClass('done current').addClass('disabled');
-						return true;
-					}
-					return false;
-				}
+				
 			}
 			form.validate().settings.ignore = ":disabled,:hidden";
 			return form.valid();

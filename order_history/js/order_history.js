@@ -30,10 +30,10 @@ jQuery.validator.setDefaults({
 			success: function(json) {
 				console.log(json);
 				if(json != ''){
+					var tableRec = '';
+
 					$.each(json, function(i, item) {
 
-						//$('#orderTable').addClass('emptyjson');
-						/*
 						switch(item.orderStatus){
 							case "In Progress": color_code = 'color-code-progress';
 											break;
@@ -41,17 +41,22 @@ jQuery.validator.setDefaults({
 											break;
 							default:  color_code = 'color-code-progress';
 											break;
-						}*/
-						var tableRec =	'<tr>'+
+						}
+						
+						 tableRec = tableRec +'<tr>'+
 								'<td class="'+color_code+'"><a href="../tracking_page/tracking_page.html?orderId='+item.id+'">#'+item.id+'</a></td>'+
 								'<td>'+item.orderDate+'</td>'+
 								'<td>'+item.orderTotal+'</td>'+
 								'<td>'+item.orderStatus+'</td>'+
 							'</tr>';
-							$('#tableBody').append(tableRec);
-					
+							console.log(tableRec);
+						
 					});
+					$('#tableBody').html(tableRec);
+				}else{
+					$('#orderTable').addClass('emptyjson');
 				}
+				
 				var table = $('#orderTable').DataTable({
 					responsive: true
 				});
