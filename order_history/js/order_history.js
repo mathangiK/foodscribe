@@ -19,7 +19,7 @@ jQuery.validator.setDefaults({
         // The DOM is ready!
 
 				//section to check if user is logged in
-				var items = JSON.parse(localStorage.getItem('token'))
+				var items = localStorage.getItem('token');
 				if (items === null || items.length === 0){
 						localStorage.setItem("backAfterLogin", window.location.href);
 						window.location.href="../login_page/login_page.html";

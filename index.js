@@ -12,7 +12,7 @@ var locationInfo ='77801';
 
 
     //section to check if user is logged in
-    var items = JSON.parse(localStorage.getItem('token'))
+    var items = localStorage.getItem('token');
     if (items === null || items.length === 0){
       $('#loggedInHeader').addClass('header_login');
       $('#shoppingCart').addClass('header_login');
@@ -22,20 +22,20 @@ var locationInfo ='77801';
 
       var input = document.getElementById('autocomplete');
 	      var options = {
-			types: ['(regions)']
-		}
+    			types: ['(regions)']
+    		}
       var autocomplete = new google.maps.places.Autocomplete(input);
 
       google.maps.event.addListener(autocomplete, 'place_changed', function(){
          var place = autocomplete.getPlace();
-		 console.log(place);
-		  $.each(place.address_components, function(index,item) {
-			$.each(item.types, function(index,itemTypes){
-				if(itemTypes == "postal_code")
-					locationInfo = item.long_name;
-			});
-		  });
-		 console.log(locationInfo);
+    		 console.log(place);
+    		  $.each(place.address_components, function(index,item) {
+      			$.each(item.types, function(index,itemTypes){
+      				if(itemTypes == "postal_code")
+      					locationInfo = item.long_name;
+      			});
+    		  });
+    		 console.log(locationInfo);
       })
 
 

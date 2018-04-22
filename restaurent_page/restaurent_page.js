@@ -21,7 +21,7 @@ var freeDeliveryArray = [];
 		}).trigger('resize');
 
 
-    var items = JSON.parse(localStorage.getItem('token'))
+    var items = localStorage.getItem('token');
     if (items === null || items.length === 0){
       $('#loggedInHeader').addClass('header_login');
       $('#shoppingCart').addClass('header_login');

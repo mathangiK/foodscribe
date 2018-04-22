@@ -83,7 +83,7 @@ var parameters = '';
     });
 
   		//section to check if user is logged in
-  		var items = JSON.parse(localStorage.getItem('token'))
+  		var items = localStorage.getItem('token');
   		if (items === null || items.length === 0){
   			$('#loggedInHeader').addClass('header_login');
         $('#shoppingCart').addClass('header_login');
@@ -227,7 +227,7 @@ function changeOfQuantity(itemid,quantity){
 }
 
 function proceed(){
-	var items = JSON.parse(localStorage.getItem('token'))
+	var items = localStorage.getItem('token');
 	if (items === null || items.length === 0){
 		window.location.href = '../login_page/login_page.html';
 	}
