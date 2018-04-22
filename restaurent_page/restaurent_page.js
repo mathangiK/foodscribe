@@ -135,7 +135,7 @@ var freeDeliveryArray = [];
 						case 'American':
 						case 'Colombian':
 						case 'Mexican':
-							cusineURL = "images/" + item.cuisine + ".jpg";
+							cusineURL = "images/" + item.cuisine.toLowerCase() + ".jpg";
 							break;
 						default:
 							cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
@@ -185,7 +185,7 @@ var freeDeliveryArray = [];
 						case 'American':
 						case 'Colombian':
 						case 'Mexican':
-							cusineURL = "images/" + item.cuisine + ".jpg";
+							cusineURL = "images/" + item.cuisine.toLowerCase() + ".jpg";
 							break;
 						default:
 							cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
@@ -244,7 +244,7 @@ var freeDeliveryArray = [];
 					case 'American':
 					case 'Colombian':
 					case 'Mexican':
-						cusineURL = "images/" + item.cuisine + ".jpg";
+						cusineURL = "images/" + item.cuisine.toLowerCase() + ".jpg";
 						break;
 					default:
 						cusineURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/oatmeal.jpg";
@@ -291,12 +291,7 @@ var freeDeliveryArray = [];
 		allRecords = [];
         //
     }
-
-
-
-
     // The rest of your code goes here!
-
 }));
 
 
@@ -305,8 +300,9 @@ var freeDeliveryArray = [];
 
 //this function will redirect to menu page of selected restaurant
 function redirectToMenuPage(resId) {
+  localstorage.setItem('morefoodURL',window.location.href);
 	window.location.href = '../menu_page/menu_page.html?restid='+resId;
-    return null;
+  return null;
 }
 
 
