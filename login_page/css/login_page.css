@@ -1,5 +1,5 @@
 body {
-	font-family: sans-serif;
+  font-family: 'Playfair Display', serif;
 	margin: 0;
 	padding: 0;
 	font-size: 14px;
@@ -221,23 +221,20 @@ body{
   background-color: #fff;
 }
 
-
-
-
 .lb-header{
   position:relative;
   color: #00415d;
   margin: 5px 5px 10px 5px;
-  padding-bottom:10px;
+  padding-bottom:40px;
   border-bottom: 1px solid #eee;
   text-align:center;
   height:28px;
 }
 .lb-header a{
   margin: 0 25px;
-  padding: 0 20px;
+  padding: 0 10px;
   text-decoration: none;
-  color: #666;
+  color: #888;
   font-weight: bold;
   font-size: 15px;
   -webkit-transition: all 0.1s linear;
@@ -245,7 +242,7 @@ body{
   transition: all 0.1s linear;
 }
 .lb-header .active{
-  color: #fff;
+  color: #000;
   font-size: 18px;
 }
 
@@ -380,20 +377,7 @@ body{
     -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   }
-  .social-login a{
-  position:relative;
-  float: left;
-  width:calc(40% - 8px);
-  text-decoration: none;
-  color: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  padding: 8px;
-  border-radius: 2px;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin: 0 3%;
-  text-align:center;
-}
+
 
   .u-form-group button{
   width:70%;
@@ -403,7 +387,7 @@ body{
   color: #fff;
   font-size: 14px;
   font-weight: normal;
-  padding: 14px 0;
+  padding: 2px 0;
   border-radius: 2px;
   text-transform: uppercase;
 }
@@ -417,7 +401,7 @@ body{
   padding: 0 10px;
   border-radius: 2px;
   color: #333;
-  font-size:0.8rem;
+  font-size:1em;
   -webkit-transition:all 0.1s linear;
   -moz-transition:all 0.1s linear;
   transition:all 0.1s linear;

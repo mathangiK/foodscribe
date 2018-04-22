@@ -189,7 +189,7 @@ var parameters = '';
 								'</tr>';
 					});
 
-					resString = resString + '</tbody></table><div style="margin-top:10px;"><div style="float:left;margin-left:2%"><button class="btn"><i class="fa fa-angle-left"></i>More Food</button></div><div style="float:right;margin-right:2%"><button class="btn" onclick="proceed();">Confirm Items<i class="fa fa-angle-right"></i></button></div></div>';
+					resString = resString + '</tbody></table><div style="margin-top:10px;"><div style="float:left;margin-left:2%"><button class="btn" onclick="morefood();"><i class="fa fa-angle-left"></i>More Food</button></div><div style="float:right;margin-right:2%"><button class="btn" onclick="proceed();">Confirm Items<i class="fa fa-angle-right"></i></button></div></div>';
 				$("#" + divElement).html(resString);
 				},
 				error: function(xhr) {
@@ -233,6 +233,16 @@ function proceed(){
 		window.location.href = '../login_page/login_page.html';
 	}else{
 	   window.location.href = '../shopping_cart/shopping_cart.html';
+  }
+}
+
+function morefood(){
+	var morefoodURL = localStorage.getItem('morefoodURL');
+	if (morefoodURL === null || morefoodURL.length === 0){
+		window.location.href = '../index.html';
+	}else{
+    localStorage.removeItem('morefoodURL');
+	   window.location.href = morefoodURL;
   }
 }
 

@@ -29,7 +29,12 @@
 				minlength : 16,
         maxlength:16,
 				digits: true
-			}
+			},
+      cardCVC : {
+        minlength : 3,
+        maxlength:3,
+        digits: true
+      }
 		}
 	});
 	form.children("div").steps({

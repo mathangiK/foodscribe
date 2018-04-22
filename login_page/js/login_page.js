@@ -11,18 +11,85 @@ var matchpassword = "The Passwords do not match";
     // The $ is now locally scoped
     $(function() {
         // The DOM is ready!
+        var $window = $(window),
+        $menu = $('#menu');
+        $window.resize(function resize(){
+          if ($window.width() < 960) {
+            return $menu.addClass('mobile');
+          }
+          $menu.removeClass('mobile');
+        }).trigger('resize');
+
+        $('#menu li.sub').on('click', function(e) {
+          e.stopPropagation();
+          $(this).toggleClass('open');  $(this).siblings().removeClass('open');
+        });
+        $(document).on('click', function() {
+           $('#menu li.sub').removeClass('open');
+        });
+        /* TOGGLE SLIDE MOBILE MENU */
+        $('#mobbtn').on('click', function(){
+          if($(this).hasClass('active')){
+          $(this).removeClass('active');
+            $(this).html("&#9776;");
+          $('.mobile').animate({
+            right:"-220px"
+          });
+          $(this).animate({
+            right:"0"
+          });
+          }
+          else {
+          $(this).addClass('active');
+          $(this).html("&#9587;");
+          $('.mobile').animate({
+            right:"0",
+          });
+          $('#mobbtn').animate({
+            right:"220px"
+          });
+          }
+        });
+        $('.content').on('click', function() {
+          if($('#mobbtn').hasClass('active')){
+            $('#mobbtn').removeClass('active');
+            $('#mobbtn').html("&#9776;");
+            $('.mobile').animate({
+              right:"-220px"
+            });
+            $('#mobbtn').animate({
+              right:"0"
+            });
+          }
+        });
+
+        $('.content').on('click', function() {
+          if($('#mobbtn').hasClass('active')){
+            $('#mobbtn').removeClass('active');
+            $('#mobbtn').html("&#9776;");
+            $('.mobile').animate({
+              right:"-220px"
+            });
+            $('#mobbtn').animate({
+              right:"0"
+            });
+          }
+        });
+
 		$(".email-signup").hide();
 		$("#signup-box-link").click(function(){
+      $('#errorMessage').html('');
 		  $(".email-login").fadeOut(100);
 		  $(".email-signup").delay(100).fadeIn(100);
 		  $("#login-box-link").removeClass("active");
 		  $("#signup-box-link").addClass("active");
 		});
 		$("#login-box-link").click(function(){
+      $('#errorMessage').html('');
 		  $(".email-login").delay(100).fadeIn(100);;
 		  $(".email-signup").fadeOut(100);
 		  $("#login-box-link").addClass("active");
-		  $("#signup-box-link").removeClass("active");
+		  $("#signup-box-link").removeClass("active") ;
 		});
     });
 
@@ -32,11 +99,10 @@ var matchpassword = "The Passwords do not match";
                login_username: {
                   required: true,
                   email:true
-
                },
                login_password: {
-                  required: true
-
+                  required: true,
+                  minlength:8
                },
             },
             messages: {
@@ -96,8 +162,8 @@ var matchpassword = "The Passwords do not match";
                   email:true
                },
                signup_password: {
-                  required: true
-                  //minlength: minPassLen
+                  required: true,
+                  minlength: 8
                },
 			   signup_confirmPass: {
 				   equalTo: "#signup_password"
@@ -112,10 +178,10 @@ var matchpassword = "The Passwords do not match";
                   required: "Password required",
                   minlength: passwordMsg
                },
-			   signup_confirmPass : {
-				   equalTo : matchpassword
-			   }
-            },
+  			   signup_confirmPass : {
+  				   equalTo : matchpassword
+  			   }
+      },
 			submitHandler : function(form){
 				console.log('signup');
 				//window.location.href = '../register_page/register_page.html';
@@ -142,7 +208,7 @@ var matchpassword = "The Passwords do not match";
 					}
 				});
 			}
-         });
+    });
 	});
 
   // The rest of your code goes here!
