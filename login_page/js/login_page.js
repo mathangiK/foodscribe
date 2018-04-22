@@ -72,6 +72,11 @@ jQuery.validator.setDefaults({
 						var resString = '';
 						console.log(json.userId);
 						localStorage.setItem('token', json.userId);
+						
+						var backaction = localStorage.getItem('backAfterLogin');
+						localStorage.removeItem('backAfterLogin');
+						window.location.href= backaction;
+						
 					},
 					error: function(xhr, status, error) {
 					  //var err = eval('(' +  + ')');

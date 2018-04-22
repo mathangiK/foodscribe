@@ -289,7 +289,14 @@ $('.content').on('click', function() {
   } 
 });
 
+//this function will redirect to menu page of selected restaurant
 function redirectToMenuPage(resId) {
 	window.location.href = '../menu_page/menu_page.html?restid='+resId;
     return null;
+}
+
+
+//save the currentURL to be used as back URL after login
+function login(){
+	localStorage.setItem("backAfterLogin", window.location.href);
 }

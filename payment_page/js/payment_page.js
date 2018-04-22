@@ -13,7 +13,13 @@
   
   var form = $("#example-form");
 	form.validate({
-		errorPlacement: function errorPlacement(error, element) { element.before(error); }
+		errorPlacement: function errorPlacement(error, element) { element.before(error); },
+		rules : {
+			cardNumber : {
+				max : 16,
+				number: true
+			}
+		}
 	});
 	form.children("div").steps({
 		headerTag: "h3",

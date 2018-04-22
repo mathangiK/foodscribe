@@ -105,7 +105,7 @@ function createShoppingCart(){
 					});
 					var tax = count * 0.08;
 					var total  = count + (count *0.08);
-					cart = cart +'<div style="float:right; text-align:right;">Subtotal: '+count+'<br/>Discount: -$0</br>Tax(@ 8.0%): '+tax+'</br>Total: '+total+'</div>';
+					cart = cart +'<div style="float:right; text-align:right;">Subtotal: '+count.toFixed(2)+'<br/>Discount: -$0</br>Tax(@ 8.0%): '+tax.toFixed(2)+'</br>Total: '+total.toFixed(2)+'</div>';
 					cart = cart +'<div style="float:right;clear:both;margin-top:20px;"><input type="button" class="checkout-button" onclick="checkout();" value="Proceed to Checkout"/></div>';
 					$('#shoppingCart').html(cart);
 				}
@@ -162,6 +162,7 @@ function createShoppingCart(){
 		type: "POST", //send it through get method
 		success: function(json) {
 			console.log('success');
+			createShoppingCart();
 		},
 		error: function(xhr) {
 		//Do Something to handle error

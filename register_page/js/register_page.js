@@ -42,8 +42,9 @@ var matchpassword = "The Passwords do not match";
 						var resString = '';
 						console.log(json);
 						if(json == "Update Success"){
-							//var backAction = localStorage.getItem('backFromLogin');
-							//window.location.href=backAction;
+							var backaction = localStorage.getItem('backAfterLogin');
+							localStorage.removeItem('backAfterLogin');
+							window.location.href= backaction;
 						}
 					},
 					error: function(xhr) {

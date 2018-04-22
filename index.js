@@ -83,7 +83,7 @@ function redirectToRestPage(){
 	window.location.href = 'restaurent_page/restaurent_page.html?locationInfo='+locationInfo;
 }
 
-/* Sources : 
-https://cssdeck.com/labs/another-simple-css3-dropdown-menu
-http://jsfiddle.net/Kiki_Dee/4UTQk/
-*/
+//save the currentURL to be used as back URL after login
+function login(){
+	localStorage.setItem("backAfterLogin", window.location.href);
+}
