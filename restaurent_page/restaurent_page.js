@@ -294,13 +294,9 @@ var freeDeliveryArray = [];
     // The rest of your code goes here!
 }));
 
-
-//header section - for mobile and subheader
-
-
 //this function will redirect to menu page of selected restaurant
 function redirectToMenuPage(resId) {
-  localstorage.setItem('morefoodURL',window.location.href);
+  localStorage.setItem("morefoodURL",window.location.href);
 	window.location.href = '../menu_page/menu_page.html?restid='+resId;
   return null;
 }
