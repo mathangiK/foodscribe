@@ -83,7 +83,7 @@
 						success: function(json) {
 							console.log(json);
 							if(json!=''){
-								$('#info').html('<p>Order Placed. Please track your order <a href="tracking_page/tracking_page.html?orderId='+json.id+'">here</a></p>');
+								$('#info').html('<p>Order Placed. Please track your order <a href="../tracking_page/tracking_page.html?orderId='+json.id+'">here</a></p>');
 								if(form.valid()){
 									$("#wizard .actions a[href='#finish']").hide();
 									$("#wizard .actions a[href='#previous']").hide();
