@@ -36,7 +36,7 @@ function updateUser(){
                       var backaction = localStorage.getItem('backAfterLogin');
                       console.log('backaction:' + backaction);
                       localStorage.removeItem('backAfterLogin');
-                      //window.location.href= backaction;
+                      window.location.href= backaction;
                   }
               },
               error: function(xhr) {
