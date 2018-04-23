@@ -131,7 +131,6 @@ var matchpassword = "The Passwords do not match";
 						var resString = '';
             console.log(json.userId);
 						if(json.userId == 0){
-              alert('What?!!');
 							$('#errorMessage').html('Unsuccessful login attempt, try again');
 							$('#login_username').val('');
 							$('#login_password').val('');
@@ -140,7 +139,7 @@ var matchpassword = "The Passwords do not match";
 
 							var backaction = localStorage.getItem('backAfterLogin');
 							localStorage.removeItem('backAfterLogin');
-              if(backaction == null || backaction=='')
+              if(backaction == null || typeof(backaction) == 'undefined')
                   window.location.href = '../index.html';
 							else
                 window.location.href= backaction;
@@ -202,10 +201,15 @@ var matchpassword = "The Passwords do not match";
 					success: function(json) {
 						var resString = '';
 						console.log(json);
-						if(json.userid!=0){
-							localStorage.setItem("token", json.userid);
+						if(json.userId!=0){
+							localStorage.setItem("token", json.userId);
 							window.location.href = '../register_page/register_page.html';
-						}
+						}else{
+              $('#errorMessage').html('User already exists');
+							$('#signup_email').val('');
+							$('#signup_password').val('');
+              $('#signup_confirmPass').val('');
+            }
 					},
 					error: function(xhr) {
 					//Do Something to handle error

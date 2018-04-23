@@ -40,7 +40,7 @@ function updateUser(){
                       var backaction = localStorage.getItem('backAfterLogin');
                       console.log('backaction:' + backaction);
                       localStorage.removeItem('backAfterLogin');
-                      if(backaction == null || backaction=='')
+                      if(backaction == null || typeof(backaction) == 'undefined')
                           window.location.href = '../index.html';
                       else
                         window.location.href= backaction;
