@@ -81,9 +81,10 @@
 						data: jsonData,
 						type: "POST", //send it through get method
 						success: function(json) {
-							console.log(json);
+              var jsonObject = JSON.parse(json);
+							console.log(jsonObject.id);
 							if(json!=''){
-								$('#info').html('<p>Order Placed. Please track your order <a href="../tracking_page/tracking_page.html?orderId='+json.id+'">here</a></p>');
+								$('#info').html('<p>Order Placed. Please track your order <a href="../tracking_page/tracking_page.html?orderId='+jsonObject.id+'">here</a></p>');
 								if(form.valid()){
 									$("#wizard .actions a[href='#finish']").hide();
 									$("#wizard .actions a[href='#previous']").hide();
