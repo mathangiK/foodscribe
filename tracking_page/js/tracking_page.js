@@ -15,7 +15,7 @@ var count = 0;
 
 	var orderId = getUrlParameter('orderId') || '';
 	if(orderId == ''){
-		window.location.href = '../error.html'
+		window.location.href = '../error.html';
 	}
 
 	var items = localStorage.getItem('token');

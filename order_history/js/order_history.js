@@ -17,6 +17,19 @@ var matchpassword = "The Passwords do not match";
         if (items === null || items.length === 0) {
             localStorage.setItem("backAfterLogin", window.location.href);
             window.location.href = "../login_page/login_page.html";
+        }else{
+          $.ajax({
+            url: "https://foodscribe-backend.herokuapp.com/user/getLastName/"+items,
+            contentType: "text/xml",
+            type: "GET", //send it through get method
+            success: function(json) {
+              console.log('test');
+                $('#loggedUser').html('Welcome back '+json+'!');
+            },
+            error: function(xhr) {
+            //Do Something to handle error
+            }
+          });
         }
 
         var headers = {

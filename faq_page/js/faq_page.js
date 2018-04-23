@@ -1,3 +1,4 @@
+var mobile = false;
 (function($) {
         // The DOM is ready!
         // The DOM is ready!
@@ -5,8 +6,10 @@
         $menu = $('#menu');
         $window.resize(function resize(){
           if ($window.width() < 960) {
+            mobile=true;
             return $menu.addClass('mobile');
           }
+          mobile=false;
           $menu.removeClass('mobile');
         }).trigger('resize');
 
@@ -92,28 +95,29 @@
               });
 
               doAjax();
+              var interval = 5000;
 
-              var interval = 5000;  // 1000 = 1 second, 3000 = 3 seconds
-              function doAjax() {
-                  $.ajax({
-                          type: 'GET',
-                          url: 'https://foodscribe-backend.herokuapp.com/cart/funfacts',
-                          contentType: 'xml/text',
-                          success: function (data) {
-                            console.log(data);
-                                  $('#facts').html('<p>'+data+'</p>');// first set the value
-                          },
-                          complete: function (data) {
-                                  // Schedule the next
-                                  setTimeout(doAjax, interval);
-                          }
-                  });
-              }
 
 })(jQuery);
 
 function login(){
 	localStorage.setItem("backAfterLogin", window.location.href);
+}
+
+function doAjax() {
+    $.ajax({
+            type: 'GET',
+            url: 'https://foodscribe-backend.herokuapp.com/cart/funfacts',
+            contentType: 'xml/text',
+            success: function (data) {
+              console.log(data);
+                    $('#facts').html('<p>'+data+'</p>');// first set the value
+            },
+            complete: function(data){
+                if(mobile)
+                setTimeout(doAjax, 3000);
+            }
+    });
 }
 
 function logoutLogic(){

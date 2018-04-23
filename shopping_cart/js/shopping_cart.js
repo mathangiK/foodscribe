@@ -18,6 +18,18 @@
     $('#shoppingCart').addClass('header_login');
   }else{
     $('#loginHeader').addClass('header_login');
+    $.ajax({
+      url: "https://foodscribe-backend.herokuapp.com/user/getLastName/"+items,
+      contentType: "text/xml",
+      type: "GET", //send it through get method
+      success: function(json) {
+        console.log('test');
+          $('#loggedUser').html('Welcome back '+json+'!');
+      },
+      error: function(xhr) {
+      //Do Something to handle error
+      }
+    });
   }
 
 
