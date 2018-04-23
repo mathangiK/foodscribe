@@ -13,22 +13,13 @@
 <body>
 
 <header>
-            <!--The link to external CSS-->
-            <title>FoodScribe</title>
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-            <div id="head-content">
-                <!--The following section of the code displays the logo-->
-                <div id="logo">
-                    <a href="../index.html"><img src="https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a>
-				</div>
-            </div>
-            <div id="mobbtn">&#9776;</div>
-                <!--The following code describes the menu of the webiste with navigation to external websites-->
-                <nav id="menu">
-
-                </nav>
-            </div>
-        </header>
+    <!--The link to external CSS-->
+    <div id="head-content">
+      <div id="logo"><a href="#"><img src = "https://dl.dropboxusercontent.com/s/kdkmj8p3pw9ogu0/Newlogo.png?dl=0" width = 150px height=48px></a></div>
+      <div id="mobbtn">&#9776;</div>
+      <nav id="menu"> </nav>
+    </div>
+</header>
 <main>
 	<section class="section">
 		<div class="container order-panel">
@@ -36,44 +27,40 @@
 			<h1>Registration Information</h1>
 			<hr>
 		  </div>
-		  <form id="registerForm">
-			<div class="order-form">
-			<div class="row box">
-			  <div class="one-half column order-label">
-				<label for="firstName">First Name</label>
-			  </div>
-			  <div class="one-half column">
-				<input class="u-full-width" type="text" name="firstName" id="firstName">
-			  </div>
-			</div>
-			 <div class="row box">
-			  <div class="one-half column order-label">
-				<label for="lastName">Last Name*</label>
-			  </div>
-			  <div class="one-half column">
-				<input class="u-full-width" type="text" id="lastName" name="lastName">
-			  </div>
-			</div>
-			<div class="row box">
-			  <div class="one-half column order-label">
-				<label for="phone">Phone</label>
-			  </div>
-			  <div class="one-half column">
-				<input class="u-full-width" type="tel" name="phone" id="phone">
-			  </div>
-			</div>
-			<div class="row box">
-				<button class="u-full-width" name="Save" id="updateInfo">Save</button>
-			</div>
-			</div>
+		  <form id="registerForm" >
+  			<div class="row box">
+  			  <div class="one-half column order-label">
+  				<label for="firstName">First Name</label>
+  			  </div>
+  			  <div class="one-half column">
+  				<input class="u-full-width" type="text" name="firstName" id="firstName">
+  			  </div>
+  			</div>
+  			 <div class="row box">
+  			  <div class="one-half column order-label">
+  				<label for="lastName">Last Name*</label>
+  			  </div>
+  			  <div class="one-half column">
+  				<input class="u-full-width" type="text" id="lastName" name="lastName">
+  			  </div>
+  			</div>
+  			<div class="row box">
+  			  <div class="one-half column order-label">
+  				<label for="phoneno">Phone</label>
+  			  </div>
+  			  <div class="one-half column">
+  				<input class="u-full-width" type="tel" name="phoneno" id="phoneno">
+  			  </div>
+  			</div>
+  			<div class="row box">
+  				<button href="#" class="u-full-width" name="Save" onclick="updateUser();">Save</button> 
+  			</div>
 		  </form>
-		</div>
-		</div>
 	  </div>
 	</section>
 </main>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.0/jquery.validate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
   <script  src="js/register_page.js"></script>
 </body>
 

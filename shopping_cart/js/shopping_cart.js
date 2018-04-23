@@ -129,19 +129,19 @@ function updateModalWindow(type){
 	switch(type){
 		case 'FAQ':
 			title = 'FAQs';
-			content = '<p>This is a FAQ section</p>';
+			content = '<p>What is Foodscribe?</p><p>Foodscribe is a food delivery app that makes getting great food from your favorite local restaurants as easy as requesting a ride.</p><p>When is Foodscribe available?<p></p>Foodscribe is available seven days a week, whenever restaurants near you are open and accepting orders.</p>';
 			break;
 		case 'Privacy':
 			title = 'Privacy Policy';
-			content = '<p>This is a FAQ section</p>';
+			content = '<p>When you use FoodScribe services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. This is important; we hope you will take time to read it carefully. And remember, you can find controls to manage your information and protect your privacy </p>';
 			break;
 		case 'Cancel':
 			title = 'Order Cancellation Policy';
-			content = '<p>This is a FAQ section</p>';
+			content = '<p>Cancellation is not currently supported through the website. Call for further queries at 9798765432</p>';
 			break;
 		case 'Delivery':
 			title = 'Delivery Policy';
-			content = '<p>This is a FAQ section</p>';
+			content = '<p>We deliver within 30 minutes or you can have your money back</p>';
 			break;
 		default:
 			title = 'Help';

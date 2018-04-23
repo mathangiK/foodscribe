@@ -1,5 +1,4 @@
 body {
-  font-family: 'Playfair Display', serif;
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -12,9 +11,9 @@ body {
   box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5 {
-	font-family: 'Roboto Condensed', sans-serif;
-}
+  h1,h2,h3,h4,h5 {
+  	font-family: 'Roboto Condensed', sans-serif;
+  }
 ul {
   margin: 0;
   padding: 0;

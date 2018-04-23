@@ -1,106 +1,50 @@
-var parameters = '';
-var minPassLen = 8,
-    maxPassLen = 4096;
-var passwordMsg = "Password must greater than " + minPassLen + " characters";
-var usernameMsg = "Please enter a valid email address";
-var matchpassword = "The Passwords do not match";
-(function(yourcode) {
-    // The global jQuery object is passed as a parameter
-    yourcode(window.jQuery, window, document);
-}(function($, window, document) {
-    // The $ is now locally scoped
-    $(function() {
+(function($) {
         // The DOM is ready!
-        $("#updateInfo").click(function() {
-            $("#registerForm").validate({
-                rules: {
-                    lastName: {
-                        required: true
-                    },
-                    phone: {
-                        phoneUS: true
-                    }
-                },
-                messages: {
-                    lastName: {
-                        required: "Last Name required",
-                    }
-                },
-                submitHandler: function(form) {
-                    console.log(localStorage.getItem('token'));
-                    $.ajax({
-                        url: "https://foodscribe-backend.herokuapp.com/user/updateUserInfo",
-                        data: JSON.stringify({
-                            userid: Number.parseInt(localStorage.getItem('token')),
-                            firstName: $('#firstName').val(),
-                            lastName: $('#lastName').val(),
-                            phone: $('#phone').val()
-                        }),
-                        type: "POST", //send it through get method
-                        success: function(json) {
-                            var resString = '';
-                            console.log(json);
-                            if (json == "Update Success") {
-                                var backaction = localStorage.getItem('backAfterLogin');
-                                console.log('backaction:' + backaction);
-                                localStorage.removeItem('backAfterLogin');
-                                window.location.href= backaction;
-                            }
-                        },
-                        error: function(xhr) {
-                            //Do Something to handle error
-                            console.log('error');
-                        },
-                        contentType: "application/json; charset=utf-8"
-                    });
-                }
-            });
-        });
+        console.log('test');
+})(jQuery);
 
-        //header section - for mobile and subheader
-        $('#menu li.sub').on('click', function(e) {
-            e.stopPropagation();
-            $(this).toggleClass('open');
-            $(this).siblings().removeClass('open');
-        });
-        $(document).on('click', function() {
-            $('#menu li.sub').removeClass('open');
-        });
-        /* TOGGLE SLIDE MOBILE MENU */
-        $('#mobbtn').on('click', function() {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                $(this).html("&#9776;");
-                $('.mobile').animate({
-                    right: "-220px"
-                });
-                $(this).animate({
-                    right: "0"
-                });
-            } else {
-                $(this).addClass('active');
-                $(this).html("&#9587;");
-                $('.mobile').animate({
-                    right: "0",
-                });
-                $('#mobbtn').animate({
-                    right: "220px"
-                });
-            }
-        });
-        $('.content').on('click', function() {
-            if ($('#mobbtn').hasClass('active')) {
-                $('#mobbtn').removeClass('active');
-                $('#mobbtn').html("&#9776;");
-                $('.mobile').animate({
-                    right: "-220px"
-                });
-                $('#mobbtn').animate({
-                    right: "0"
-                });
-            }
-        });
 
+function updateUser(){
+  console.log("updateUser");
+    $('#registerForm').validate({
+      rules: {
+          lastName: {
+              required: true
+          }
+      },
+      messages: {
+          lastName: {
+              required: "Last Name required"
+          }
+      },
+      submitHandler: function(form) {
+          console.log(localStorage.getItem('token'));
+
+          $.ajax({
+              url: "https://foodscribe-backend.herokuapp.com/user/updateUserInfo",
+              data: JSON.stringify({
+                  userid: Number.parseInt(localStorage.getItem('token')),
+                  firstName: $('#firstName').val(),
+                  lastName: $('#lastName').val(),
+                  phone: $('#phoneno').val()
+              }),
+              type: "POST", //send it through get method
+              success: function(json) {
+                  var resString = '';
+                  console.log(json);
+                  if (json == "Update Success") {
+                      var backaction = localStorage.getItem('backAfterLogin');
+                      console.log('backaction:' + backaction);
+                      localStorage.removeItem('backAfterLogin');
+                      //window.location.href= backaction;
+                  }
+              },
+              error: function(xhr) {
+                  //Do Something to handle error
+                  console.log('error');
+              },
+              contentType: "application/json; charset=utf-8"
+          });
+      }
     });
-    // The rest of your code goes here!
-}));
+  }
