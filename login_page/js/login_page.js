@@ -129,8 +129,9 @@ var matchpassword = "The Passwords do not match";
 					type: "POST", //send it through get method
 					success: function(json) {
 						var resString = '';
-						console.log(json.userId);
+            console.log(json.userId);
 						if(json.userId == 0){
+              alert('What?!!');
 							$('#errorMessage').html('Unsuccessful login attempt, try again');
 							$('#login_username').val('');
 							$('#login_password').val('');
@@ -139,10 +140,10 @@ var matchpassword = "The Passwords do not match";
 
 							var backaction = localStorage.getItem('backAfterLogin');
 							localStorage.removeItem('backAfterLogin');
-              if(backaction == null)
+              if(backaction == null || backaction=='')
                   window.location.href = '../index.html';
 							else
-              window.location.href= backaction;
+                window.location.href= backaction;
 						}
 					},
 					error: function(xhr, status, error) {
@@ -153,7 +154,7 @@ var matchpassword = "The Passwords do not match";
 				});
 
 			}
-         });
+    });
 	});
 
 
@@ -168,9 +169,9 @@ var matchpassword = "The Passwords do not match";
                   required: true,
                   minlength: 8
                },
-			   signup_confirmPass: {
-				   equalTo: "#signup_password"
-			   }
+      			   signup_confirmPass: {
+      				   equalTo: "#signup_password"
+      			   }
             },
             messages: {
                login_username: {

@@ -1,5 +1,4 @@
 body {
-  font-family: 'Playfair Display', serif;
 	margin: 0;
 	padding: 0;
 	font-size: 14px;
@@ -209,4 +208,8 @@ header {
 }
 main {
   margin-top: 48px; !important;
+}
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
 }

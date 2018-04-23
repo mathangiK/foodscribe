@@ -39,6 +39,7 @@ var count = 0;
         }
     };
 
+  $('#cover-spin').show();
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/order/"+orderId,
 		type: "get", //send it through get method
@@ -138,8 +139,10 @@ var count = 0;
 			}else{
 				$('#orderSection').html('<p>Oops! There is no order history associated with this order.</p>');
 			}
+			$('#cover-spin').hide();
 		},
 		error: function(xhr) {
+						$('#cover-spin').hide();
 		//Do Something to handle error
 		}
 	});

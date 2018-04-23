@@ -28,6 +28,7 @@ function createShoppingCart(){
 	var headerInfo = {
 		userid : Number.parseInt(localStorage.getItem("token"))
 	};
+  $('#cover-spin').show();
 	console.log(headerInfo);
 		$.ajax({
 			url: "https://foodscribe-backend.herokuapp.com/cart/getCartItemList",
@@ -73,11 +74,13 @@ function createShoppingCart(){
 				}else{
           $('#shoppingCartSec').html('<br/><br/><p style="text-align:middle;">The cart is currently empty. <a href="../index.html">Click</a> to add more items </p>');
         }
+        $('#cover-spin').hide();
 			},
 			error: function(xhr) {
 				console.log(xhr);
+        $('#cover-spin').hide();
         $('#shoppingCartSec').html('<br/><br/><p style="text-align:middle;">The cart is currently empty. <a href="../index.html">Click</a> to add more items </p>');
-      
+
 			//Do Something to handle error
 			}
 		});

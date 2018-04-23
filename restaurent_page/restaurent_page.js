@@ -104,7 +104,7 @@ var freeDeliveryArray = [];
     };
 
     var pullResData = function(divElement,type) {
-
+      $('#cover-spin').show();
 		if(divElement != 'restaurentList'){
 
 			$.ajax({
@@ -171,6 +171,7 @@ var freeDeliveryArray = [];
 				$("#" + divElement).html(resString);
 
 
+
 				var freeDeliveryString = '<div class="row">';
 				$.each(freeDeliveryArray, function(i, item) {
 					if (i == 4) {
@@ -219,8 +220,10 @@ var freeDeliveryArray = [];
 				});
 				freeDeliveryString += '</div>';
 				$("#freeDelivery").html(freeDeliveryString);
+        $('#cover-spin').hide();
 			  },
 			  error: function(xhr) {
+          $('#cover-spin').hide();
 				//Do Something to handle error
 			  }
 			});
@@ -288,6 +291,7 @@ var freeDeliveryArray = [];
 
         $('#showMore').show();
         pullResData('restaurentList',type);
+        $('#cover-spin').hide();
 		allRecords = [];
         //
     }

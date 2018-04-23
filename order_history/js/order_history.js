@@ -22,6 +22,7 @@ var matchpassword = "The Passwords do not match";
         var headers = {
             userid: Number.parseInt(localStorage.getItem("token"))
         };
+        $('#cover-spin').show();
         var color_code = '';
         $.ajax({
             url: "https://foodscribe-backend.herokuapp.com/order/orderList",
@@ -49,7 +50,7 @@ var matchpassword = "The Passwords do not match";
 
                         tableRec = tableRec + '<tr>' +
                             '<td class="' + color_code + '"><a href="../tracking_page/tracking_page.html?orderId=' + item.id + '">#' + item.id + '</a></td>' +
-                            '<td>' + item.orderDate + '</td>' +
+                            '<td>' + new Date(item.orderDate).toLocaleString() + '</td>' +
                             '<td>' + item.orderTotal + '</td>' +
                             '<td>' + item.orderStatus + '</td>' +
                             '</tr>';
@@ -74,9 +75,10 @@ var matchpassword = "The Passwords do not match";
 
                     }
                 });
-
+                $('#cover-spin').hide();
             },
             error: function(xhr) {
+              $('#cover-spin').hide();
                 //Do Something to handle error
             }
         });
@@ -137,4 +139,14 @@ function login() {
 function logoutLogic() {
     localStorage.removeItem("token");
     window.location.href = "../index.html";
+}
+
+
+function provideProperDateTime(myDate){
+    var dateStr=myDate; //returned from mysql timestamp/datetime field
+  var a= myDate.split(" ");
+  var d= a[0].split("-");
+  var t= a[1].split(":");
+  var formatedDate = new Date(d[0],(d[1]-1),d[2],t[0],t[1],t[2]);
+  return formatedDate;
 }

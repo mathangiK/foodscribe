@@ -140,7 +140,7 @@ var parameters = '';
 		}
 
 		if(divElement == 'menu_sections'){
-
+      $('#cover-spin').show();
 			$.ajax({
 				url: "https://foodscribe-backend.herokuapp.com/menu/"+parameters,
 				type: "get", //send it through get method
@@ -191,8 +191,10 @@ var parameters = '';
 
 					resString = resString + '</tbody></table><div style="margin-top:10px;"><div style="float:left;margin-left:2%"><button class="btn" onclick="morefood();"><i class="fa fa-angle-left"></i>More Food</button></div><div style="float:right;margin-right:2%"><button class="btn" onclick="proceed();">Confirm Items<i class="fa fa-angle-right"></i></button></div></div>';
 				$("#" + divElement).html(resString);
+        $('#cover-spin').hide();
 				},
 				error: function(xhr) {
+          $('#cover-spin').hide();
 				//Do Something to handle error
 				}
 			});
@@ -203,7 +205,7 @@ var parameters = '';
 
 function changeOfQuantity(itemid,quantity){
 	//console.log(localStorage.getItem("token"));
-
+$('#cover-spin').show();
 	$.ajax({
 		url: "https://foodscribe-backend.herokuapp.com/cart/add",
 		data: JSON.stringify({
@@ -215,10 +217,12 @@ function changeOfQuantity(itemid,quantity){
 		success: function(json) {
 			var resString = '';
 			console.log(json);
+      $('#cover-spin').hide();
 		},
 		error: function(xhr) {
 		//Do Something to handle error
 			console.log(xhr);
+      $('#cover-spin').hide();
 		},
 		contentType: 'application/json; charset=UTF-8',
 		dataType : 'text'

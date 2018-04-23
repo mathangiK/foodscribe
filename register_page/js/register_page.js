@@ -10,6 +10,10 @@ function updateUser(){
       rules: {
           lastName: {
               required: true
+          },
+          phoneno : {
+              minlength:10,
+              maxlength:10
           }
       },
       messages: {
@@ -36,7 +40,10 @@ function updateUser(){
                       var backaction = localStorage.getItem('backAfterLogin');
                       console.log('backaction:' + backaction);
                       localStorage.removeItem('backAfterLogin');
-                      window.location.href= backaction;
+                      if(backaction == null || backaction=='')
+                          window.location.href = '../index.html';
+                      else
+                        window.location.href= backaction;
                   }
               },
               error: function(xhr) {

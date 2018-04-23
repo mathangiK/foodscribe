@@ -76,6 +76,7 @@
 							});
 				console.log(jsonData);
         if(form.valid()){
+          $('#cover-spin').show();
 					$.ajax({
 						url: "https://foodscribe-backend.herokuapp.com/checkout/checkout",
 						data: jsonData,
@@ -83,6 +84,7 @@
 						success: function(json) {
               var jsonObject = JSON.parse(json);
 							console.log(jsonObject.id);
+              $('#cover-spin').hide();
 							if(json!=''){
 								$('#info').html('<p>Order Placed. Please track your order <a href="../tracking_page/tracking_page.html?orderId='+jsonObject.id+'">here</a></p>');
 								if(form.valid()){
@@ -110,6 +112,8 @@
 						error: function(xhr) {
 						//Do Something to handle error
 							console.log(xhr);
+
+              $('#spinner').addClass('spinner_hide');
 						},
 						contentType: 'application/json; charset=UTF-8',
 						dataType : 'text'
