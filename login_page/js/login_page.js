@@ -135,11 +135,14 @@ var matchpassword = "The Passwords do not match";
 							$('#login_username').val('');
 							$('#login_password').val('');
 						}else{
-							localStorage.setItem('token', json.userId);
+							localStorage.setItem("token", json.userId);
 
 							var backaction = localStorage.getItem('backAfterLogin');
 							localStorage.removeItem('backAfterLogin');
-							window.location.href= backaction;
+              if(backaction == null)
+                  window.location.href = '../index.html';
+							else
+              window.location.href= backaction;
 						}
 					},
 					error: function(xhr, status, error) {

@@ -104,5 +104,5 @@ function login(){
 
 function logoutLogic(){
   localStorage.removeItem("token");
-	window.location.href="../index.html";
+	window.location.href="index.html";
 }

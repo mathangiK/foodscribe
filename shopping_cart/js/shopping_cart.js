@@ -76,6 +76,8 @@ function createShoppingCart(){
 			},
 			error: function(xhr) {
 				console.log(xhr);
+        $('#shoppingCartSec').html('<br/><br/><p style="text-align:middle;">The cart is currently empty. <a href="../index.html">Click</a> to add more items </p>');
+      
 			//Do Something to handle error
 			}
 		});
